@@ -1,0 +1,85 @@
+{
+  "schema": "maritime-ot-watch/curated-v1",
+  "signals": [
+    {
+      "id": "USCG-2026-07-22-SUBPARTF-WAIVERS",
+      "origin": "USCG",
+      "kind": "Regulatory",
+      "date": "2026-07-22",
+      "title": "Coast Guard clarifies Subpart F obligations for entities with prior MTSA waivers",
+      "summary": "Prior physical-security waivers do not automatically exempt covered entities from 33 CFR Part 101 Subpart F. A Cybersecurity Assessment remains required before a cybersecurity waiver request.",
+      "source": "https://www.news.uscg.mil/maritime-commons/Article/4552369/33-code-of-federal-regulations-part-101-subpart-f-cybersecurity-information-for/",
+      "sourceName": "U.S. Coast Guard",
+      "tags": ["MTSA", "33 CFR Part 101", "Cybersecurity Assessment"],
+      "products": [],
+      "relevance": "Direct U.S. maritime regulatory relevance"
+    },
+    {
+      "id": "USCG-2026-06-04-CSA-GUIDANCE",
+      "origin": "USCG",
+      "kind": "Regulatory",
+      "date": "2026-06-04",
+      "title": "Coast Guard issues Cybersecurity Assessment scoping and process guidance",
+      "summary": "CG-5PC Policy Letter 01-26 emphasizes rigorous CSA scoping across vulnerabilities, threats, operational dependencies, and interdependencies that could contribute to disruption or a Transportation Security Incident.",
+      "source": "https://www.news.uscg.mil/maritime-commons/Article/4512023/us-coast-guard-releases-additional-policy-and-guidance-in-support-of-33-code-of/",
+      "sourceName": "U.S. Coast Guard",
+      "tags": ["MTSA", "CSA", "Operational dependency"],
+      "products": [],
+      "relevance": "Direct U.S. maritime regulatory relevance"
+    },
+    {
+      "id": "SIEMENS-SSA-019113",
+      "origin": "Vendor",
+      "kind": "Vendor advisory",
+      "date": "2026-07-14",
+      "title": "Siemens SSA-019113 — SIMATIC S7-1500 affected-version advisory",
+      "summary": "TIDECAIRN's source-validation record identifies an affected-version condition for SIMATIC S7-1500 CPU 1518-4 PN/DP MFP. Confirm current Siemens advisory text and the deployed identity before making an applicability decision.",
+      "source": "https://cert-portal.siemens.com/productcert/html/ssa-019113.html",
+      "sourceName": "Siemens ProductCERT",
+      "tags": ["PLC", "Siemens", "Version-conditioned"],
+      "products": [{"vendor": "Siemens", "product": "SIMATIC S7-1500"}],
+      "relevance": "Common industrial control technology; maritime deployment not asserted"
+    },
+    {
+      "id": "ROCKWELL-SD1788",
+      "origin": "Vendor",
+      "kind": "Vendor advisory",
+      "date": "2026-07-14",
+      "title": "Rockwell SD1788 — ControlLogix 5580 certificate-validation condition",
+      "summary": "TIDECAIRN's source-validation record identifies affected ControlLogix 5580 versions and configuration-dependent impact. Confirm current Rockwell advisory text, CRL settings, intermediary certificates, and exact deployed version before disposition.",
+      "source": "https://www.rockwellautomation.com/en-us/trust-center/security-advisories/advisory.SD1788.html",
+      "sourceName": "Rockwell Automation",
+      "tags": ["PLC", "Rockwell Automation", "Configuration-conditioned"],
+      "products": [{"vendor": "Rockwell Automation", "product": "ControlLogix 5580"}],
+      "relevance": "Common industrial control technology; maritime deployment not asserted"
+    },
+    {
+      "id": "SCHNEIDER-SEVD-2020-080-01",
+      "origin": "Vendor",
+      "kind": "Vendor advisory",
+      "date": "2020-03-20",
+      "title": "Schneider Electric SEVD-2020-080-01 — Modicon M580",
+      "summary": "TIDECAIRN's source-validation record identifies a version condition for Modicon M580 associated with CVE-2020-7475. This older record remains in the seed corpus as a provenance example, not as a claim of current urgency.",
+      "source": "https://www.se.com/ww/en/work/support/cybersecurity/security-notifications/",
+      "sourceName": "Schneider Electric",
+      "tags": ["PLC", "Schneider Electric", "CVE-2020-7475", "Archive"],
+      "products": [{"vendor": "Schneider Electric", "product": "Modicon M580"}],
+      "cves": ["CVE-2020-7475"],
+      "relevance": "Common industrial control technology; maritime deployment not asserted"
+    },
+    {
+      "id": "ABB-3ADR011536",
+      "origin": "Vendor",
+      "kind": "Vendor advisory",
+      "date": "2026-03-12",
+      "title": "ABB 3ADR011536 — AC500 V3 PM5xxx",
+      "summary": "TIDECAIRN's source-validation record identifies firmware 3.9.0 as affected by CVE-2025-15467 and 3.9.0 HF1 as the corrected version. Confirm the current ABB CSAF record before disposition.",
+      "source": "https://psirt.abb.com/csaf/2026/3adr011536.json",
+      "sourceName": "ABB PSIRT",
+      "tags": ["PLC", "ABB", "CVE-2025-15467"],
+      "products": [{"vendor": "ABB", "product": "AC500 V3 PM5xxx"}],
+      "cves": ["CVE-2025-15467"],
+      "relevance": "Common industrial control technology; maritime deployment not asserted"
+    }
+  ]
+}

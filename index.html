@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#071015">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<title>Maritime OT Watch | TIDECAIRN</title>
+<meta name="description" content="Source-backed maritime OT vulnerability, exploitation, and U.S. regulatory-change intelligence from Tidecairn Systems.">
+<meta property="og:type" content="website"><meta property="og:title" content="Maritime OT Watch | TIDECAIRN"><meta property="og:description" content="Source-backed maritime OT vulnerability, exploitation, and regulatory-change intelligence.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/watch.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to intelligence</a>
+<header class="mast">
+  <a class="brand" href="./" aria-label="TIDECAIRN Maritime OT Watch home"><span class="mark" aria-hidden="true"></span><span><strong>TIDECAIRN</strong><small>MARITIME OT WATCH</small></span></a>
+  <nav aria-label="Primary"><a href="#watch">Watch</a><a href="#products">Products</a><a href="#regulatory">MTSA</a><a href="#method">Method</a><a href="#readiness">Readiness</a></nav>
+</header>
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy"><div class="eyebrow">PUBLIC-SOURCE MARITIME OT INTELLIGENCE</div><h1 id="hero-title">Industrial cyber changes worth reviewing in maritime environments.</h1><p class="dek">A source-backed watch ledger for OT advisories, known exploitation, product changes, and U.S. maritime cybersecurity requirements. Inclusion is a review signal—not a claim that a facility asset is affected.</p></div>
+  <div class="status-board" aria-label="Watch status">
+    <div><span>Data as of</span><strong id="dataAsOf">—</strong></div><div><span>Source health</span><strong id="sourceHealth">—</strong></div><div><span>Signals indexed</span><strong id="signalCount">—</strong></div><div><span>Dataset integrity</span><strong id="integrity">CHECKING</strong></div>
+  </div>
+</section>
+<section class="watch" id="watch">
+  <div class="section-head"><div><div class="eyebrow">WATCH LEDGER</div><h2>Current signals</h2><p>Newest records first. Archived seed records remain labeled and searchable.</p></div></div>
+  <div class="filterbar" role="search"><label>Search <input id="search" type="search" autocomplete="off" placeholder="Vendor, product, CVE, advisory"></label><label>Signal type <select id="typeFilter"><option value="">All types</option></select></label><label>Vendor <select id="vendorFilter"><option value="">All vendors</option></select></label><button id="clearFilters" type="button">Clear</button></div>
+  <div id="signalList" class="signal-list" aria-live="polite"></div><div id="emptySignals" class="empty" hidden>No signals match the current filters.</div>
+</section>
+<section class="split" id="products">
+  <div class="panel"><div class="section-head compact"><div><div class="eyebrow">PRODUCT INDEX</div><h2>Indexed product families</h2></div><strong id="productCount" class="metric">—</strong></div><div id="productIndex" class="product-grid"></div></div>
+  <aside class="panel method-card" id="method"><div class="eyebrow">METHOD</div><h2>Evidence before verdict.</h2><p>Maritime OT Watch is a discovery surface. Public-source inclusion means “review this,” not “this asset is affected.” Exact identity, deployed version, configuration, evidence freshness, and human designation still matter.</p><a href="methodology.html">Read methodology and coverage limits →</a></aside>
+</section>
+<section id="sourceStatus" class="source-status" aria-labelledby="source-title"><div><div class="eyebrow">SOURCE STATUS</div><h2 id="source-title">Acquisition health</h2><p>Each source keeps its own last-success timestamp. A failed refresh never advances that timestamp or turns missing data into an all-clear.</p></div><div id="sourceGrid" class="source-grid"></div></section>
+<section id="regulatory" class="regulatory"><div><div class="eyebrow">33 CFR PART 101 SUBPART F</div><h2>Cybersecurity Assessment / Plan clock</h2><p>Coast Guard implementation guidance identifies <strong>16 July 2027</strong> as the date by which covered owners/operators must designate the Cybersecurity Officer, conduct the Cybersecurity Assessment, and submit the Cybersecurity Plan for approval.</p><a id="uscgSource" target="_blank" rel="noopener noreferrer">Open Coast Guard source ↗</a></div><div class="countdown"><span id="daysRemaining">—</span><small>days remaining</small></div></section>
+<section id="readiness" class="readiness"><div class="section-head"><div><div class="eyebrow">LOCAL EVIDENCE READINESS</div><h2>Can you substantiate the assessment?</h2><p>Ten non-sensitive questions. Answers are evaluated in your browser and are not transmitted.</p></div></div><form id="readinessForm"></form><div class="readiness-result" id="readinessResult" hidden aria-live="polite"><div><span>Evidence readiness</span><strong id="readinessScore">—</strong></div><div id="readinessFindings"></div><button type="button" id="copyMatrix">Copy evidence matrix</button></div></section>
+
+</main>
+<footer><div><strong>TIDECAIRN</strong><span>Maritime OT Decision Intelligence</span></div><div class="footer-links"><a href="methodology.html">Methodology</a><a href="privacy.html">Privacy</a></div><p>Public-source intelligence. Not a compliance determination, certification, or substitute for current vendor or agency guidance.</p></footer>
+<script src="assets/watch.js" defer></script>
+</body></html>
