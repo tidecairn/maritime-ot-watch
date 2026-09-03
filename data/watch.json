@@ -1,17 +1,17 @@
 {
   "meta": {
     "schema": "maritime-ot-watch/v2",
-    "selectorVersion": "ot-relevance/v2",
-    "acquisitionVersion": "cisa-ics-csaf/v1",
-    "generatedAt": "2026-09-03T08:12:51Z",
-    "dataAsOf": "2026-09-03T08:12:51Z",
+    "selectorVersion": "ot-relevance/v2.1",
+    "acquisitionVersion": "cisa-ics-csaf/v1.1",
+    "generatedAt": "2026-09-03T08:19:57Z",
+    "dataAsOf": "2026-09-03T08:19:57Z",
     "health": "HEALTHY",
     "sources": {
       "curated": {
         "status": "healthy",
         "mode": "local-registry",
-        "checkedAt": "2026-09-03T08:12:51Z",
-        "lastSuccess": "2026-09-03T08:12:51Z",
+        "checkedAt": "2026-09-03T08:19:57Z",
+        "lastSuccess": "2026-09-03T08:19:57Z",
         "recordCount": 6,
         "error": "",
         "note": "Local curated registry loaded; individual records retain their own source dates"
@@ -19,8 +19,8 @@
       "cisaIcs": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-03T08:12:51Z",
-        "lastSuccess": "2026-09-03T08:12:51Z",
+        "checkedAt": "2026-09-03T08:19:57Z",
+        "lastSuccess": "2026-09-03T08:19:57Z",
         "recordCount": 50,
         "error": "",
         "note": "CISA official OT TLP:WHITE CSAF ROLIE feed (cisagov/CSAF)",
@@ -30,17 +30,17 @@
       "cisaKev": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-03T08:12:51Z",
-        "lastSuccess": "2026-09-03T08:12:51Z",
+        "checkedAt": "2026-09-03T08:19:57Z",
+        "lastSuccess": "2026-09-03T08:19:57Z",
         "recordCount": 9,
         "error": "",
-        "note": "Token-aware OT selector v2"
+        "note": "Token-aware OT selector v2.1; ICS-linked CVEs labeled explicitly"
       },
       "firstEpss": {
         "status": "healthy",
         "mode": "enrichment",
-        "checkedAt": "2026-09-03T08:12:51Z",
-        "lastSuccess": "2026-09-03T08:12:51Z",
+        "checkedAt": "2026-09-03T08:19:57Z",
+        "lastSuccess": "2026-09-03T08:19:57Z",
         "recordCount": 153,
         "error": "",
         "note": ""
@@ -67,11 +67,11 @@
       "products": [
         {
           "vendor": "Rockwell Automation",
-          "product": "Series B"
+          "product": "Historian ME — Series B"
         },
         {
           "vendor": "Rockwell Automation",
-          "product": "Series C"
+          "product": "Historian ME — Series C"
         }
       ],
       "cves": [
@@ -89,7 +89,7 @@
       "kind": "CISA ICS advisory",
       "date": "2026-09-01",
       "title": "Rockwell Automation ControlLogix, CompactLogix, CompactLogix 5480, GuardLogix, Compact GuardLogix",
-      "summary": "Worldwide",
+      "summary": "Successful exploitation of this vulnerability could result in a major nonrecoverable fault (MNRF), requiring a program download or stage 2 reset to recover.",
       "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-244-05",
       "sourceName": "CISA ICS Advisory",
       "tags": [
@@ -132,7 +132,7 @@
       "kind": "CISA ICS advisory",
       "date": "2026-09-01",
       "title": "Rockwell Automation FactoryTalk Activation Manager",
-      "summary": "Worldwide",
+      "summary": "Successful exploitation of this vulnerability could allow an authenticated attacker to obtain SYSTEM-level access, granting full control over all files, processes, and system resources.",
       "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-244-04",
       "sourceName": "CISA ICS Advisory",
       "tags": [
@@ -159,7 +159,7 @@
       "kind": "CISA ICS advisory",
       "date": "2026-09-01",
       "title": "Rockwell Automation Logix Platform",
-      "summary": "Worldwide",
+      "summary": "Successful exploitation of this vulnerability could result in a major nonrecoverable fault (MNRF), requiring a power cycle to recover.",
       "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-244-03",
       "sourceName": "CISA ICS Advisory",
       "tags": [
@@ -900,7 +900,7 @@
       "kind": "CISA ICS advisory",
       "date": "2026-08-11",
       "title": "Siemens LOGO! Soft Comfort",
-      "summary": "Siemens LOGO! Soft Comfort contains multiple vulnerabilities in its project-file encryption and password handling mechanisms. A local attacker could exploit these vulnerabilities to extract the master key, allowing them to decrypt project data or remove project passwords. The lack of password salting enables offline dictionary or brute-force attacks against the password hashes. Successful exploitation could result in unauthorized access to, or modification of, sensitive project logic and configurations. Siemens has",
+      "summary": "Siemens LOGO! Soft Comfort contains multiple vulnerabilities in its project-file encryption and password handling mechanisms. A local attacker could exploit these vulnerabilities to extract the master key, allowing them to decrypt project data or remove project passwords. The lack of password salting enables offline dictionary or brute-force attacks against the password hashes. Successful exploitation could result in unauthorized access to, or modification of, sensitive project logic and configurations.",
       "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-13",
       "sourceName": "CISA ICS Advisory",
       "tags": [
@@ -1617,7 +1617,8 @@
       "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "sourceName": "CISA Known Exploited Vulnerabilities",
       "tags": [
-        "KEV"
+        "KEV",
+        "CISA ICS-linked"
       ],
       "products": [
         {
@@ -1630,7 +1631,10 @@
       ],
       "kev": true,
       "dueDate": "2026-06-26",
-      "relevance": "Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted",
+      "relevance": "Known exploitation; CVE appears in the current CISA ICS advisory corpus; maritime deployment not asserted",
+      "relatedIcs": [
+        "ICSA-26-069-02"
+      ],
       "epss": 0.15667,
       "epssPercentile": 0.96609
     },
@@ -1799,7 +1803,8 @@
       "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "sourceName": "CISA Known Exploited Vulnerabilities",
       "tags": [
-        "KEV"
+        "KEV",
+        "CISA ICS-linked"
       ],
       "products": [
         {
@@ -1812,7 +1817,10 @@
       ],
       "kev": true,
       "dueDate": "2026-01-19",
-      "relevance": "Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted",
+      "relevance": "Known exploitation; CVE appears in the current CISA ICS advisory corpus; maritime deployment not asserted",
+      "relatedIcs": [
+        "ICSA-26-218-01"
+      ],
       "epss": 0.83218,
       "epssPercentile": 0.99655
     },
@@ -1839,7 +1847,7 @@
       ],
       "kev": true,
       "dueDate": "2025-12-24",
-      "relevance": "Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted",
+      "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.39356,
       "epssPercentile": 0.98502
     },
@@ -1866,7 +1874,7 @@
       ],
       "kev": true,
       "dueDate": "2025-12-19",
-      "relevance": "Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted",
+      "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.4805,
       "epssPercentile": 0.9877
     },
@@ -2050,7 +2058,7 @@
       ],
       "kev": true,
       "dueDate": "2023-12-18",
-      "relevance": "Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted",
+      "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.02072,
       "epssPercentile": 0.80133
     },
@@ -2077,7 +2085,7 @@
       ],
       "kev": true,
       "dueDate": "2023-08-03",
-      "relevance": "Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted",
+      "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.97997,
       "epssPercentile": 0.99907
     },
@@ -2104,7 +2112,7 @@
       ],
       "kev": true,
       "dueDate": "2022-05-06",
-      "relevance": "Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted",
+      "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.31392,
       "epssPercentile": 0.98154
     },
@@ -2118,7 +2126,8 @@
       "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "sourceName": "CISA Known Exploited Vulnerabilities",
       "tags": [
-        "KEV"
+        "KEV",
+        "CISA ICS-linked"
       ],
       "products": [
         {
@@ -2131,7 +2140,10 @@
       ],
       "kev": true,
       "dueDate": "2022-04-15",
-      "relevance": "Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted",
+      "relevance": "Known exploitation; CVE appears in the current CISA ICS advisory corpus; maritime deployment not asserted",
+      "relatedIcs": [
+        "ICSA-26-239-02"
+      ],
       "epss": 0.9978,
       "epssPercentile": 0.99955
     },
@@ -2158,7 +2170,7 @@
       ],
       "kev": true,
       "dueDate": "2022-03-24",
-      "relevance": "Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted",
+      "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.03624,
       "epssPercentile": 0.88719
     },
