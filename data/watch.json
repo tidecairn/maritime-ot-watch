@@ -1,37 +1,37 @@
 {
   "meta": {
     "schema": "maritime-ot-watch/v2",
-    "generatedAt": "2026-09-02T16:30:00Z",
-    "dataAsOf": "2026-09-02T16:30:00Z",
-    "health": "SEED",
+    "generatedAt": "2026-09-03T07:41:55Z",
+    "dataAsOf": null,
+    "health": "PARTIAL",
     "sources": {
       "curated": {
         "status": "healthy",
-        "checkedAt": "2026-09-02T16:30:00Z",
-        "lastSuccess": "2026-09-02T16:30:00Z",
+        "checkedAt": "2026-09-03T07:41:55Z",
+        "lastSuccess": "2026-09-03T07:41:55Z",
         "recordCount": 6,
         "error": ""
       },
       "cisaIcs": {
-        "status": "pending",
-        "checkedAt": null,
+        "status": "degraded",
+        "checkedAt": "2026-09-03T07:41:55Z",
         "lastSuccess": null,
         "recordCount": 0,
-        "error": "Run refresh before public launch"
+        "error": "HTTP Error 403: Forbidden"
       },
       "cisaKev": {
-        "status": "pending",
-        "checkedAt": null,
-        "lastSuccess": null,
-        "recordCount": 0,
-        "error": "Run refresh before public launch"
+        "status": "healthy",
+        "checkedAt": "2026-09-03T07:41:55Z",
+        "lastSuccess": "2026-09-03T07:41:55Z",
+        "recordCount": 39,
+        "error": ""
       },
       "firstEpss": {
-        "status": "pending",
-        "checkedAt": null,
-        "lastSuccess": null,
-        "recordCount": 0,
-        "error": "Run refresh before public launch"
+        "status": "healthy",
+        "checkedAt": "2026-09-03T07:41:55Z",
+        "lastSuccess": "2026-09-03T07:41:55Z",
+        "recordCount": 41,
+        "error": ""
       }
     },
     "uscgDeadline": "2027-07-16",
@@ -39,6 +39,33 @@
     "commercialEmail": ""
   },
   "signals": [
+    {
+      "id": "KEV-CVE-2026-68820",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2026-08-11",
+      "title": "CVE-2026-68820 — Microsoft Windows Ancillary Function Driver for WinSock  is in CISA KEV",
+      "summary": "Microsoft Windows Ancillary Function Driver for WinSock contains a use-after-free vulnerability that allows an authorized attacker to elevate privileges locally.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Microsoft",
+          "product": "Windows Ancillary Function Driver for WinSock "
+        }
+      ],
+      "cves": [
+        "CVE-2026-68820"
+      ],
+      "kev": true,
+      "dueDate": "2026-08-25",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.06184,
+      "epssPercentile": 0.93001
+    },
     {
       "id": "USCG-2026-07-22-SUBPARTF-WAIVERS",
       "origin": "USCG",
@@ -140,7 +167,1035 @@
       "cves": [
         "CVE-2025-15467"
       ],
-      "relevance": "Common industrial control technology; maritime deployment not asserted"
+      "relevance": "Common industrial control technology; maritime deployment not asserted",
+      "epss": 0.48211,
+      "epssPercentile": 0.98775
+    },
+    {
+      "id": "KEV-CVE-2021-22054",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2026-03-09",
+      "title": "CVE-2021-22054 — Omnissa Workspace One UEM is in CISA KEV",
+      "summary": "Omnissa Workspace One UEM formerly known as VMware Workspace One UEM contains a server-side request forgery (SSRF) vulnerability that could allow a malicious actor with network access to UEM to send their requests without authentication and to gain access to sensitive information.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Omnissa",
+          "product": "Workspace One UEM"
+        }
+      ],
+      "cves": [
+        "CVE-2021-22054"
+      ],
+      "kev": true,
+      "dueDate": "2026-03-23",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.97369,
+      "epssPercentile": 0.99893
+    },
+    {
+      "id": "KEV-CVE-2026-20127",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2026-02-25",
+      "title": "CVE-2026-20127 — Cisco Catalyst SD-WAN Controller and Manager is in CISA KEV",
+      "summary": "Cisco Catalyst SD-WAN Controller, formerly SD-WAN vSmart, and Cisco Catalyst SD-WAN Manager, formerly SD-WAN vManage, contain an authentication bypass vulnerability could allow an unauthenticated, remote attacker to bypass authentication and obtain administrative privileges on an affected system. This vulnerability exists because the peering authentication mechanism in an affected system is not working properly. An attacker could exploit this vulnerability by sending crafted requests to an affected system. A successful exploit could allow the attacker to log in to an affected Cisco Catalyst SD-WAN Controller as an internal, high-privileged, non-root user account. Using this account, the attacker could access NETCONF, which would then allow the attacker to manipulate network configuration for the SD-WAN fabric.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Cisco",
+          "product": "Catalyst SD-WAN Controller and Manager"
+        }
+      ],
+      "cves": [
+        "CVE-2026-20127"
+      ],
+      "kev": true,
+      "dueDate": "2026-02-27",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.88243,
+      "epssPercentile": 0.99757
+    },
+    {
+      "id": "KEV-CVE-2026-22769",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2026-02-18",
+      "title": "CVE-2026-22769 — Dell RecoverPoint for Virtual Machines (RP4VMs) is in CISA KEV",
+      "summary": "Dell RecoverPoint for Virtual Machines (RP4VMs) contains an use of hard-coded credentials vulnerability that could allow an unauthenticated remote attacker to gain unauthorized access to the underlying operating system and root-level persistence.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Dell",
+          "product": "RecoverPoint for Virtual Machines (RP4VMs)"
+        }
+      ],
+      "cves": [
+        "CVE-2026-22769"
+      ],
+      "kev": true,
+      "dueDate": "2026-02-21",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.13122,
+      "epssPercentile": 0.96087
+    },
+    {
+      "id": "KEV-CVE-2021-26828",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2025-12-03",
+      "title": "CVE-2021-26828 — OpenPLC ScadaBR is in CISA KEV",
+      "summary": "OpenPLC ScadaBR contains an unrestricted upload of file with dangerous type vulnerability that allows remote authenticated users to upload and execute arbitrary JSP files via view_edit.shtm.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "OpenPLC",
+          "product": "ScadaBR"
+        }
+      ],
+      "cves": [
+        "CVE-2021-26828"
+      ],
+      "kev": true,
+      "dueDate": "2025-12-24",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.39356,
+      "epssPercentile": 0.98502
+    },
+    {
+      "id": "KEV-CVE-2021-26829",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2025-11-28",
+      "title": "CVE-2021-26829 — OpenPLC ScadaBR is in CISA KEV",
+      "summary": "OpenPLC ScadaBR contains a cross-site scripting vulnerability via system_settings.shtm.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "OpenPLC",
+          "product": "ScadaBR"
+        }
+      ],
+      "cves": [
+        "CVE-2021-26829"
+      ],
+      "kev": true,
+      "dueDate": "2025-12-19",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.4805,
+      "epssPercentile": 0.9877
+    },
+    {
+      "id": "KEV-CVE-2020-25079",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2025-08-05",
+      "title": "CVE-2020-25079 — D-Link DCS-2530L and DCS-2670L Devices is in CISA KEV",
+      "summary": "D-Link DCS-2530L and DCS-2670L devices contains a command injection vulnerability in the cgi-bin/ddns_enc.cgi. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "D-Link",
+          "product": "DCS-2530L and DCS-2670L Devices"
+        }
+      ],
+      "cves": [
+        "CVE-2020-25079"
+      ],
+      "kev": true,
+      "dueDate": "2025-08-26",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.52717,
+      "epssPercentile": 0.9889
+    },
+    {
+      "id": "KEV-CVE-2020-25078",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2025-08-05",
+      "title": "CVE-2020-25078 — D-Link DCS-2530L and DCS-2670L Devices is in CISA KEV",
+      "summary": "D-Link DCS-2530L and DCS-2670L devices contains an unspecified vulnerability that could allow for remote administrator password disclosure. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "D-Link",
+          "product": "DCS-2530L and DCS-2670L Devices"
+        }
+      ],
+      "cves": [
+        "CVE-2020-25078"
+      ],
+      "kev": true,
+      "dueDate": "2025-08-26",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.97901,
+      "epssPercentile": 0.99904
+    },
+    {
+      "id": "KEV-CVE-2024-50603",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2025-01-16",
+      "title": "CVE-2024-50603 — Aviatrix Controllers is in CISA KEV",
+      "summary": "Aviatrix Controllers contain an OS command injection vulnerability that could allow an unauthenticated attacker to execute arbitrary code. Shell metacharacters can be sent to /v1/api in cloud_type for list_flightpath_destination_instances, or src_cloud_type for flightpath_connection_test.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Aviatrix",
+          "product": "Controllers"
+        }
+      ],
+      "cves": [
+        "CVE-2024-50603"
+      ],
+      "kev": true,
+      "dueDate": "2025-02-06",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.98545,
+      "epssPercentile": 0.99919
+    },
+    {
+      "id": "KEV-CVE-2024-7593",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2024-09-24",
+      "title": "CVE-2024-7593 — Ivanti Virtual Traffic Manager is in CISA KEV",
+      "summary": "Ivanti Virtual Traffic Manager contains an authentication bypass vulnerability that allows a remote, unauthenticated attacker to create a chosen administrator account.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Ivanti",
+          "product": "Virtual Traffic Manager"
+        }
+      ],
+      "cves": [
+        "CVE-2024-7593"
+      ],
+      "kev": true,
+      "dueDate": "2024-10-15",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.9999,
+      "epssPercentile": 0.99984
+    },
+    {
+      "id": "KEV-CVE-2024-4610",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2024-06-12",
+      "title": "CVE-2024-4610 — Arm Mali GPU Kernel Driver is in CISA KEV",
+      "summary": "Arm Bifrost and Valhall GPU kernel drivers contain a use-after-free vulnerability that allows a local, non-privileged user to make improper GPU memory processing operations to gain access to already freed memory.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Arm",
+          "product": "Mali GPU Kernel Driver"
+        }
+      ],
+      "cves": [
+        "CVE-2024-4610"
+      ],
+      "kev": true,
+      "dueDate": "2024-07-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.00758,
+      "epssPercentile": 0.52749
+    },
+    {
+      "id": "KEV-CVE-2023-6448",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2023-12-11",
+      "title": "CVE-2023-6448 — Unitronics Vision PLC and HMI is in CISA KEV",
+      "summary": "Unitronics Vision Series PLCs and HMIs ship with an insecure default password, which if left unchanged, can allow attackers to execute remote commands.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Unitronics",
+          "product": "Vision PLC and HMI"
+        }
+      ],
+      "cves": [
+        "CVE-2023-6448"
+      ],
+      "kev": true,
+      "dueDate": "2023-12-18",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.02072,
+      "epssPercentile": 0.80133
+    },
+    {
+      "id": "KEV-CVE-2023-4211",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2023-10-03",
+      "title": "CVE-2023-4211 — Arm Mali GPU Kernel Driver is in CISA KEV",
+      "summary": "Arm Mali GPU Kernel Driver contains a use-after-free vulnerability that allows a local, non-privileged user to make improper GPU memory processing operations to gain access to already freed memory.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Arm",
+          "product": "Mali GPU Kernel Driver"
+        }
+      ],
+      "cves": [
+        "CVE-2023-4211"
+      ],
+      "kev": true,
+      "dueDate": "2023-10-24",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.01098,
+      "epssPercentile": 0.63364
+    },
+    {
+      "id": "KEV-CVE-2022-29303",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2023-07-13",
+      "title": "CVE-2022-29303 — SolarView Compact is in CISA KEV",
+      "summary": "SolarView Compact contains a command injection vulnerability due to improper validation of input values on the send test mail console of the product's web server.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "SolarView",
+          "product": "Compact"
+        }
+      ],
+      "cves": [
+        "CVE-2022-29303"
+      ],
+      "kev": true,
+      "dueDate": "2023-08-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.97997,
+      "epssPercentile": 0.99907
+    },
+    {
+      "id": "KEV-CVE-2015-2291",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2023-02-10",
+      "title": "CVE-2015-2291 — Intel Ethernet Diagnostics Driver for Windows is in CISA KEV",
+      "summary": "Intel ethernet diagnostics driver for Windows IQVW32.sys and IQVW64.sys contain an unspecified vulnerability that allows for a denial-of-service (DoS).",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Intel",
+          "product": "Ethernet Diagnostics Driver for Windows"
+        }
+      ],
+      "cves": [
+        "CVE-2015-2291"
+      ],
+      "kev": true,
+      "dueDate": "2023-03-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.09011,
+      "epssPercentile": 0.94907
+    },
+    {
+      "id": "KEV-CVE-2022-27518",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-12-13",
+      "title": "CVE-2022-27518 — Citrix Application Delivery Controller (ADC) and Gateway is in CISA KEV",
+      "summary": "Citrix Application Delivery Controller (ADC) and Gateway, when configured with SAML SP or IdP configuration, contain an authentication bypass vulnerability that allows an attacker to execute code as administrator.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Citrix",
+          "product": "Application Delivery Controller (ADC) and Gateway"
+        }
+      ],
+      "cves": [
+        "CVE-2022-27518"
+      ],
+      "kev": true,
+      "dueDate": "2023-01-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.06875,
+      "epssPercentile": 0.93591
+    },
+    {
+      "id": "KEV-CVE-2013-2597",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-09-15",
+      "title": "CVE-2013-2597 — Code Aurora ACDB Audio Driver is in CISA KEV",
+      "summary": "The Code Aurora audio calibration database (acdb) audio driver contains a stack-based buffer overflow vulnerability that allows for privilege escalation. Code Aurora is used in third-party products such as Qualcomm and Android.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Code Aurora",
+          "product": "ACDB Audio Driver"
+        }
+      ],
+      "cves": [
+        "CVE-2013-2597"
+      ],
+      "kev": true,
+      "dueDate": "2022-10-06",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.01516,
+      "epssPercentile": 0.72767
+    },
+    {
+      "id": "KEV-CVE-2017-18362",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-05-24",
+      "title": "CVE-2017-18362 — Kaseya Virtual System/Server Administrator (VSA) is in CISA KEV",
+      "summary": "ConnectWise ManagedITSync integration for Kaseya VSA is vulnerable to unauthenticated remote commands that allow full direct access to the Kaseya VSA database.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Kaseya",
+          "product": "Virtual System/Server Administrator (VSA)"
+        }
+      ],
+      "cves": [
+        "CVE-2017-18362"
+      ],
+      "kev": true,
+      "dueDate": "2022-06-14",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.8682,
+      "epssPercentile": 0.9973
+    },
+    {
+      "id": "KEV-CVE-2016-4523",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-04-15",
+      "title": "CVE-2016-4523 — Trihedral VTScada (formerly VTS) is in CISA KEV",
+      "summary": "The WAP interface in Trihedral VTScada (formerly VTS) allows remote attackers to cause a denial-of-service (DoS).",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Trihedral",
+          "product": "VTScada (formerly VTS)"
+        }
+      ],
+      "cves": [
+        "CVE-2016-4523"
+      ],
+      "kev": true,
+      "dueDate": "2022-05-06",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.31392,
+      "epssPercentile": 0.98154
+    },
+    {
+      "id": "KEV-CVE-2022-22954",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-04-14",
+      "title": "CVE-2022-22954 — VMware Workspace ONE Access and Identity Manager is in CISA KEV",
+      "summary": "VMware Workspace ONE Access and Identity Manager allow for remote code execution due to server-side template injection.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "VMware",
+          "product": "Workspace ONE Access and Identity Manager"
+        }
+      ],
+      "cves": [
+        "CVE-2022-22954"
+      ],
+      "kev": true,
+      "dueDate": "2022-05-05",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.99997,
+      "epssPercentile": 0.99989
+    },
+    {
+      "id": "KEV-CVE-2018-20753",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-04-13",
+      "title": "CVE-2018-20753 — Kaseya Virtual System/Server Administrator (VSA) is in CISA KEV",
+      "summary": "Kaseya VSA RMM allows unprivileged remote attackers to execute PowerShell payloads on all managed devices.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Kaseya",
+          "product": "Virtual System/Server Administrator (VSA)"
+        }
+      ],
+      "cves": [
+        "CVE-2018-20753"
+      ],
+      "kev": true,
+      "dueDate": "2022-05-04",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.29336,
+      "epssPercentile": 0.98044
+    },
+    {
+      "id": "KEV-CVE-2021-21551",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-03-31",
+      "title": "CVE-2021-21551 — Dell dbutil Driver is in CISA KEV",
+      "summary": "Dell dbutil driver contains an insufficient access control vulnerability which may lead to escalation of privileges, denial-of-service (DoS), or information disclosure.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Dell",
+          "product": "dbutil Driver"
+        }
+      ],
+      "cves": [
+        "CVE-2021-21551"
+      ],
+      "kev": true,
+      "dueDate": "2022-04-21",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.79249,
+      "epssPercentile": 0.9957
+    },
+    {
+      "id": "KEV-CVE-2011-2005",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-03-28",
+      "title": "CVE-2011-2005 — Microsoft Ancillary Function Driver (afd.sys) is in CISA KEV",
+      "summary": "afd.sys in the Ancillary Function Driver in Microsoft Windows does not properly validate user-mode input passed to kernel mode, which allows local users to gain privileges via a crafted application.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Microsoft",
+          "product": "Ancillary Function Driver (afd.sys)"
+        }
+      ],
+      "cves": [
+        "CVE-2011-2005"
+      ],
+      "kev": true,
+      "dueDate": "2022-04-18",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.31761,
+      "epssPercentile": 0.98173
+    },
+    {
+      "id": "KEV-CVE-2017-6316",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-03-25",
+      "title": "CVE-2017-6316 — Citrix NetScaler SD-WAN Enterprise, CloudBridge Virtual WAN, and XenMobile Server is in CISA KEV",
+      "summary": "A vulnerability has been identified in the management interface of Citrix NetScaler SD-WAN Enterprise and Standard Edition and Citrix CloudBridge Virtual WAN Edition that could result in an unauthenticated, remote attacker being able to execute arbitrary code as a root user. This vulnerability also affects XenMobile Server.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Citrix",
+          "product": "NetScaler SD-WAN Enterprise, CloudBridge Virtual WAN, and XenMobile Server"
+        }
+      ],
+      "cves": [
+        "CVE-2017-6316"
+      ],
+      "kev": true,
+      "dueDate": "2022-04-15",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.72596,
+      "epssPercentile": 0.99401
+    },
+    {
+      "id": "KEV-CVE-2016-11021",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-03-25",
+      "title": "CVE-2016-11021 — D-Link DCS-930L Devices is in CISA KEV",
+      "summary": "setSystemCommand on D-Link DCS-930L devices allows a remote attacker to execute code via an OS command.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "D-Link",
+          "product": "DCS-930L Devices"
+        }
+      ],
+      "cves": [
+        "CVE-2016-11021"
+      ],
+      "kev": true,
+      "dueDate": "2022-04-15",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.6887,
+      "epssPercentile": 0.99296
+    },
+    {
+      "id": "KEV-CVE-2013-4810",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-03-25",
+      "title": "CVE-2013-4810 — Hewlett Packard (HP) ProCurve Manager (PCM), PCM+, Identity Driven Manager (IDM), and Application Lifecycle Management is in CISA KEV",
+      "summary": "HP ProCurve Manager (PCM), PCM+, Identity Driven Manager (IDM), and Application Lifecycle Management allow remote attackers to execute arbitrary code via a marshalled object to (1) EJBInvokerServlet or (2) JMXInvokerServlet.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Hewlett Packard (HP)",
+          "product": "ProCurve Manager (PCM), PCM+, Identity Driven Manager (IDM), and Application Lifecycle Management"
+        }
+      ],
+      "cves": [
+        "CVE-2013-4810"
+      ],
+      "kev": true,
+      "dueDate": "2022-04-15",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.79003,
+      "epssPercentile": 0.99567
+    },
+    {
+      "id": "KEV-CVE-2016-8562",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-03-03",
+      "title": "CVE-2016-8562 — Siemens SIMATIC CP is in CISA KEV",
+      "summary": "An improper privilege management vulnerability exists within the Siemens SIMATIC Communication Processor (CP) that allows a privileged attacker to remotely cause a denial of service.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Siemens",
+          "product": "SIMATIC CP"
+        }
+      ],
+      "cves": [
+        "CVE-2016-8562"
+      ],
+      "kev": true,
+      "dueDate": "2022-03-24",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.03624,
+      "epssPercentile": 0.88719
+    },
+    {
+      "id": "KEV-CVE-2015-2387",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-03-03",
+      "title": "CVE-2015-2387 — Microsoft ATM Font Driver is in CISA KEV",
+      "summary": "ATMFD.DLL in the Adobe Type Manager Font Driver in Microsoft Windows Server allows local users to gain privileges via a crafted application.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Microsoft",
+          "product": "ATM Font Driver"
+        }
+      ],
+      "cves": [
+        "CVE-2015-2387"
+      ],
+      "kev": true,
+      "dueDate": "2022-03-24",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.3512,
+      "epssPercentile": 0.98326
+    },
+    {
+      "id": "KEV-CVE-2008-3431",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-03-03",
+      "title": "CVE-2008-3431 — Oracle VirtualBox is in CISA KEV",
+      "summary": "An input validation vulnerability exists in the VBoxDrv.sys driver of Sun xVM VirtualBox which allows attackers to locally execute arbitrary code.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Oracle",
+          "product": "VirtualBox"
+        }
+      ],
+      "cves": [
+        "CVE-2008-3431"
+      ],
+      "kev": true,
+      "dueDate": "2022-03-24",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.06932,
+      "epssPercentile": 0.93645
+    },
+    {
+      "id": "KEV-CVE-2021-40870",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2022-01-18",
+      "title": "CVE-2021-40870 — Aviatrix Aviatrix Controller is in CISA KEV",
+      "summary": "Unrestricted upload of a file with a dangerous type is possible, which allows an unauthenticated user to execute arbitrary code via directory traversal.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Aviatrix",
+          "product": "Aviatrix Controller"
+        }
+      ],
+      "cves": [
+        "CVE-2021-40870"
+      ],
+      "kev": true,
+      "dueDate": "2022-02-01",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.93019,
+      "epssPercentile": 0.99825
+    },
+    {
+      "id": "KEV-CVE-2021-40438",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2021-12-01",
+      "title": "CVE-2021-40438 — Apache Apache is in CISA KEV",
+      "summary": "A crafted request uri-path can cause mod_proxy to forward the request to an origin server choosen by the remote user. This issue affects Apache HTTP Server 2.4.48 and earlier.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Apache",
+          "product": "Apache"
+        }
+      ],
+      "cves": [
+        "CVE-2021-40438"
+      ],
+      "kev": true,
+      "dueDate": "2021-12-15",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.99999,
+      "epssPercentile": 0.99997
+    },
+    {
+      "id": "KEV-CVE-2020-11261",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2021-12-01",
+      "title": "CVE-2020-11261 — Qualcomm Snapdragon Auto, Snapdragon Compute, Snapdragon Connectivity, Snapdragon Consumer IOT, Snapdragon Industrial IOT, Snapdragon Mobile, Snapdragon Voice & Music, Snapdragon Wearables is in CISA KEV",
+      "summary": "Memory corruption due to improper check to return error when user application requests memory allocation of a huge size in Snapdragon Auto, Snapdragon Compute, Snapdragon Connectivity, Snapdragon Consumer IOT, Snapdragon Industrial IOT, Snapdragon Mobile, Snapdragon Voice & Music, Snapdragon Wearables",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Qualcomm",
+          "product": "Snapdragon Auto, Snapdragon Compute, Snapdragon Connectivity, Snapdragon Consumer IOT, Snapdragon Industrial IOT, Snapdragon Mobile, Snapdragon Voice & Music, Snapdragon Wearables"
+        }
+      ],
+      "cves": [
+        "CVE-2020-11261"
+      ],
+      "kev": true,
+      "dueDate": "2022-06-01",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.01772,
+      "epssPercentile": 0.76616
+    },
+    {
+      "id": "KEV-CVE-2021-30116",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2021-11-03",
+      "title": "CVE-2021-30116 — Kaseya Virtual System/Server Administrator (VSA) is in CISA KEV",
+      "summary": "Kaseya Virtual System/Server Administrator (VSA) contains an information disclosure vulnerability allowing an attacker to obtain the sessionId that can be used to execute further attacks against the system.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Kaseya",
+          "product": "Virtual System/Server Administrator (VSA)"
+        }
+      ],
+      "cves": [
+        "CVE-2021-30116"
+      ],
+      "kev": true,
+      "dueDate": "2021-11-17",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.85735,
+      "epssPercentile": 0.9971
+    },
+    {
+      "id": "KEV-CVE-2020-8196",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2021-11-03",
+      "title": "CVE-2020-8196 — Citrix Application Delivery Controller (ADC), Gateway, and SD-WAN WANOP Appliance is in CISA KEV",
+      "summary": "Citrix ADC, Citrix Gateway, and multiple Citrix SD-WAN WANOP appliance models contain an information disclosure vulnerability.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Citrix",
+          "product": "Application Delivery Controller (ADC), Gateway, and SD-WAN WANOP Appliance"
+        }
+      ],
+      "cves": [
+        "CVE-2020-8196"
+      ],
+      "kev": true,
+      "dueDate": "2022-05-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.26333,
+      "epssPercentile": 0.97857
+    },
+    {
+      "id": "KEV-CVE-2020-8195",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2021-11-03",
+      "title": "CVE-2020-8195 — Citrix Application Delivery Controller (ADC), Gateway, and SD-WAN WANOP Appliance is in CISA KEV",
+      "summary": "Citrix ADC, Citrix Gateway, and multiple Citrix SD-WAN WANOP appliance models contain an information disclosure vulnerability.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Citrix",
+          "product": "Application Delivery Controller (ADC), Gateway, and SD-WAN WANOP Appliance"
+        }
+      ],
+      "cves": [
+        "CVE-2020-8195"
+      ],
+      "kev": true,
+      "dueDate": "2022-05-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.33263,
+      "epssPercentile": 0.9825
+    },
+    {
+      "id": "KEV-CVE-2020-8193",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2021-11-03",
+      "title": "CVE-2020-8193 — Citrix Application Delivery Controller (ADC), Gateway, and SD-WAN WANOP Appliance is in CISA KEV",
+      "summary": "Citrix ADC, Citrix Gateway, and multiple Citrix SD-WAN WANOP appliance models contain an authorization bypass vulnerability that may allow unauthenticated access to certain URL endpoints. The attacker must have access to the NetScaler IP (NSIP) in order to perform exploitation.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Citrix",
+          "product": "Application Delivery Controller (ADC), Gateway, and SD-WAN WANOP Appliance"
+        }
+      ],
+      "cves": [
+        "CVE-2020-8193"
+      ],
+      "kev": true,
+      "dueDate": "2022-05-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.88411,
+      "epssPercentile": 0.9976
+    },
+    {
+      "id": "KEV-CVE-2019-19781",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2021-11-03",
+      "title": "CVE-2019-19781 — Citrix Application Delivery Controller (ADC), Gateway, and SD-WAN WANOP Appliance is in CISA KEV",
+      "summary": "Citrix ADC, Citrix Gateway, and multiple Citrix SD-WAN WANOP appliance models contain an unspecified vulnerability that could allow an unauthenticated attacker to perform code execution.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Citrix",
+          "product": "Application Delivery Controller (ADC), Gateway, and SD-WAN WANOP Appliance"
+        }
+      ],
+      "cves": [
+        "CVE-2019-19781"
+      ],
+      "kev": true,
+      "dueDate": "2022-05-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.99999,
+      "epssPercentile": 0.99998
+    },
+    {
+      "id": "KEV-CVE-2019-11634",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2021-11-03",
+      "title": "CVE-2019-11634 — Citrix Workspace Application and Receiver for Windows is in CISA KEV",
+      "summary": "Citrix Workspace Application and Receiver for Windows contains remote code execution vulnerability resulting from local drive access preferences not being enforced into the clients' local drives.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "Citrix",
+          "product": "Workspace Application and Receiver for Windows"
+        }
+      ],
+      "cves": [
+        "CVE-2019-11634"
+      ],
+      "kev": true,
+      "dueDate": "2022-05-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.08026,
+      "epssPercentile": 0.94371
+    },
+    {
+      "id": "KEV-CVE-2016-3643",
+      "origin": "CISA-KEV",
+      "kind": "Known exploited vulnerability",
+      "date": "2021-11-03",
+      "title": "CVE-2016-3643 — SolarWinds Virtualization Manager is in CISA KEV",
+      "summary": "SolarWinds Virtualization Manager allows for privilege escalation through leveraging a misconfiguration of sudo.",
+      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "sourceName": "CISA Known Exploited Vulnerabilities",
+      "tags": [
+        "KEV"
+      ],
+      "products": [
+        {
+          "vendor": "SolarWinds",
+          "product": "Virtualization Manager"
+        }
+      ],
+      "cves": [
+        "CVE-2016-3643"
+      ],
+      "kev": true,
+      "dueDate": "2022-05-03",
+      "relevance": "Known exploitation plus selected OT product/CVE criteria; maritime deployment not asserted",
+      "epss": 0.03704,
+      "epssPercentile": 0.88976
     },
     {
       "id": "SCHNEIDER-SEVD-2020-080-01",
@@ -166,7 +1221,9 @@
       "cves": [
         "CVE-2020-7475"
       ],
-      "relevance": "Common industrial control technology; maritime deployment not asserted"
+      "relevance": "Common industrial control technology; maritime deployment not asserted",
+      "epss": 0.01581,
+      "epssPercentile": 0.73817
     }
   ]
 }
