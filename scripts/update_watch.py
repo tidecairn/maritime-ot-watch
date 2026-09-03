@@ -29,6 +29,8 @@ CURATED = ROOT / "data" / "curated.json"
 SHA = ROOT / "data" / "watch.sha256"
 ICS_RSS = "https://www.cisa.gov/cybersecurity-advisories/ics-advisories.xml"
 ICS_LIST = "https://www.cisa.gov/news-events/cybersecurity-advisories?f%5B0%5D=advisory_type%3A95&items_per_page=100&sort_by=field_release_date"
+CISA_CSAF_OT_FEED = "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/OT/white/cisa-csaf-ot-feed-tlp-white.json"
+CISA_CSAF_OT_PREFIX = "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/OT/white/"
 KEV_URL = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
 EPSS_URL = "https://api.first.org/data/v1/epss"
 UA = "TIDECAIRN-Maritime-OT-Watch/1.2-rc2 (+public-source intelligence updater; https://tidecairn.com)"
@@ -193,6 +195,113 @@ def parse_ics_listing(blob: bytes) -> list[dict]:
         if len(out)>=MAX_ICS_ITEMS: break
     return out
 
+def parse_csaf_feed(blob: bytes) -> tuple[list[dict], str, str]:
+    """Parse CISA's standards-based TLP:WHITE OT ROLIE feed.
+
+    Returns newest ICSA entries plus feed updated timestamp and a snapshot hash of the exact feed bytes.
+    ICS Medical advisories are intentionally excluded from Maritime OT Watch.
+    """
+    doc=json.loads(blob.decode("utf-8")); feed=doc.get("feed") or {}; entries=feed.get("entry") or []
+    out=[]; seen=set()
+    for entry in entries:
+        sid=(entry.get("id") or "").strip().upper()
+        if not re.fullmatch(r"ICSA-\d{2}-\d{3}-\d{2}", sid) or sid in seen: continue
+        src=((entry.get("content") or {}).get("src") or "").strip()
+        if not src:
+            for link in entry.get("link") or []:
+                href=(link or {}).get("href") or ""
+                if (link or {}).get("rel") == "self" and href.endswith(".json"):
+                    src=href; break
+        if not src.startswith(CISA_CSAF_OT_PREFIX) or not src.lower().endswith(".json"): continue
+        out.append({
+            "id":sid,
+            "title":str(entry.get("title") or sid).strip(),
+            "published":str(entry.get("published") or "").strip(),
+            "updated":str(entry.get("updated") or entry.get("published") or "").strip(),
+            "src":src,
+        }); seen.add(sid)
+    out.sort(key=lambda x:(x.get("updated") or x.get("published") or "",x["id"]), reverse=True)
+    return out[:MAX_ICS_ITEMS], str(feed.get("updated") or "").strip(), hashlib.sha256(blob).hexdigest()
+
+
+def _csaf_note(notes: list[dict]) -> str:
+    for wanted in ("summary","description"):
+        for note in notes or []:
+            if str((note or {}).get("category") or "").lower()==wanted and (note or {}).get("text"):
+                return " ".join(str(note["text"]).split())
+    for note in notes or []:
+        if (note or {}).get("text"): return " ".join(str(note["text"]).split())
+    return ""
+
+
+def _csaf_products(tree: dict) -> list[dict]:
+    out=[]; seen=set()
+    def walk(branches, vendor=""):
+        for b in branches or []:
+            cat=str((b or {}).get("category") or ""); name=str((b or {}).get("name") or "").strip(); current=vendor
+            if cat=="vendor" and name: current=name
+            if cat=="product_name" and name:
+                key=(current or "Unspecified",name)
+                if key not in seen: out.append({"vendor":key[0],"product":key[1]}); seen.add(key)
+            walk((b or {}).get("branches") or [], current)
+    walk((tree or {}).get("branches") or [])
+    return out[:8]
+
+
+def parse_csaf_advisory(doc: dict, expected_id: str="") -> dict:
+    meta=doc.get("document") or {}; tracking=meta.get("tracking") or {}; sid=str(tracking.get("id") or "").upper()
+    if not re.fullmatch(r"ICSA-\d{2}-\d{3}-\d{2}",sid): raise ValueError("CSAF document is not an ICSA advisory")
+    if expected_id and sid != expected_id.upper(): raise ValueError(f"CSAF id mismatch: expected {expected_id}, got {sid}")
+    if meta.get("category") != "csaf_security_advisory": raise ValueError("unexpected CSAF category")
+    if str(tracking.get("status") or "").lower() != "final": raise ValueError("CSAF advisory is not final")
+    tlp=((meta.get("distribution") or {}).get("tlp") or {}).get("label")
+    if str(tlp or "").upper() != "WHITE": raise ValueError("CSAF advisory is not TLP:WHITE")
+    source=""
+    for ref in meta.get("references") or []:
+        u=str((ref or {}).get("url") or "")
+        if u.startswith("https://www.cisa.gov/news-events/ics-advisories/"):
+            source=u; break
+    if not source: raise ValueError("CSAF advisory lacks CISA web self-reference")
+    vulns=doc.get("vulnerabilities") or []; cves=sorted({str(v.get("cve") or "").upper() for v in vulns if re.fullmatch(r"CVE-\d{4}-\d{4,7}",str(v.get("cve") or ""),re.I)})
+    scores=[]
+    for v in vulns:
+        for score in v.get("scores") or []:
+            for key in ("cvss_v4","cvss_v3"):
+                try: scores.append(float(((score or {}).get(key) or {}).get("baseScore")))
+                except Exception: pass
+    summary=_csaf_note(meta.get("notes") or [])
+    if not summary:
+        summary=" ".join(filter(None,(_csaf_note(v.get("notes") or []) for v in vulns)))
+    title=str(meta.get("title") or sid).strip(); products=_csaf_products(doc.get("product_tree") or {})
+    if not products: products=[{"vendor":"Unspecified","product":title}]
+    released=str(tracking.get("initial_release_date") or "")[:10]; updated=str(tracking.get("current_release_date") or "")[:10]
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}",released): raise ValueError("CSAF advisory lacks valid initial release date")
+    out={
+        "id":sid,"origin":"CISA-ICS","kind":"CISA ICS advisory","date":released,"title":title,
+        "summary":summary[:520] if summary else f"CISA ICS Advisory {sid}. Open the primary source for affected products, versions, mitigations, and revisions.",
+        "source":source,"sourceName":"CISA ICS Advisory","tags":["CISA ICS","CSAF"],"products":products,"cves":cves,
+        "relevance":"Official CISA ICS advisory; maritime deployment not asserted"
+    }
+    if scores: out["cvss"]=max(scores)
+    if updated and updated != released: out["updated"]=updated
+    return out
+
+
+def acquire_ics_csaf(old) -> tuple[list[dict], dict]:
+    checked=utcnow(); blob=fetch_bytes(CISA_CSAF_OT_FEED); candidates,feed_updated,snapshot=parse_csaf_feed(blob)
+    ok,why=plausible_count(len(candidates),live_prior_count(old,"CISA-ICS"),MIN_ICS_RECORDS)
+    if not ok: raise ValueError(why)
+    rows=[]
+    for entry in candidates:
+        raw=fetch_json(entry["src"]); rows.append(parse_csaf_advisory(raw,entry["id"]))
+    ok,why=plausible_count(len(rows),live_prior_count(old,"CISA-ICS"),MIN_ICS_RECORDS)
+    if not ok: raise ValueError(why)
+    note="CISA official OT TLP:WHITE CSAF ROLIE feed (cisagov/CSAF)"
+    state=source_state(old,"cisaIcs",checked,True,len(rows),mode="live-acquisition",note=note)
+    state["feedUpdated"]=feed_updated; state["snapshotSha256"]=snapshot
+    return rows,state
+
+
 def enrich_ics_listing(rows: list[dict]) -> tuple[list[dict], int]:
     out=[]; failures=0
     for row in rows:
@@ -225,19 +334,23 @@ def source_state(old, key, checked, success, count, error="", mode="live-acquisi
 
 def acquire_ics(old) -> tuple[list[dict], dict]:
     checked=utcnow(); errors=[]
-    # Preferred legacy machine-readable feed when available.
+    # Preferred machine-readable path: CISA's official TLP:WHITE OT CSAF ROLIE feed.
+    try:
+        return acquire_ics_csaf(old)
+    except Exception as e: errors.append("CSAF "+str(e))
+    # Direct CISA RSS remains a fail-closed fallback when the CSAF mirror is unavailable.
     try:
         rows=parse_ics_rss(fetch_bytes(ICS_RSS)); ok,why=plausible_count(len(rows), live_prior_count(old,"CISA-ICS"), MIN_ICS_RECORDS)
-        if ok: return rows, source_state(old,"cisaIcs",checked,True,len(rows),mode="live-acquisition",note="CISA ICS RSS")
+        if ok: return rows, source_state(old,"cisaIcs",checked,True,len(rows),mode="live-acquisition",note="CISA ICS RSS fallback")
         errors.append("RSS "+why)
     except Exception as e: errors.append("RSS "+str(e))
-    # Official CISA advisory listing fallback; CISA type 95 is ICS Advisory.
+    # Official CISA advisory listing is the final direct-site fallback; CISA type 95 is ICS Advisory.
     try:
         listing=parse_ics_listing(fetch_bytes(ICS_LIST)); ok,why=plausible_count(len(listing), live_prior_count(old,"CISA-ICS"), MIN_ICS_RECORDS)
         if not ok: raise ValueError(why)
         rows,detail_failures=enrich_ics_listing(listing)
-        note=f"CISA official ICS advisory listing fallback; {detail_failures} detail page fetch failure(s)" if detail_failures else "CISA official ICS advisory listing fallback"
-        return rows, source_state(old,"cisaIcs",checked,True,len(rows),mode="live-acquisition",note=note)
+        if detail_failures: raise ValueError(f"{detail_failures} detail page fetch failure(s)")
+        return rows, source_state(old,"cisaIcs",checked,True,len(rows),mode="live-acquisition",note="CISA official ICS advisory listing fallback")
     except Exception as e: errors.append("listing "+str(e))
     prior=prior_by_origin(old,"CISA-ICS")
     return prior, source_state(old,"cisaIcs",checked,False,len(prior),"; ".join(errors),mode="live-acquisition")
@@ -305,7 +418,7 @@ def main():
     data_as_of=min(critical_success) if len(critical_success)==2 else None
     doc={
         "meta":{
-            "schema":"maritime-ot-watch/v2","selectorVersion":"ot-relevance/v2","generatedAt":checked,"dataAsOf":data_as_of,
+            "schema":"maritime-ot-watch/v2","selectorVersion":"ot-relevance/v2","acquisitionVersion":"cisa-ics-csaf/v1","generatedAt":checked,"dataAsOf":data_as_of,
             "health":health,"sources":sources,
             "uscgDeadline":"2027-07-16",
             "uscgSource":"https://www.news.uscg.mil/maritime-commons/Article/4247529/final-rule-cybersecurity-in-the-marine-transportation-system-implementation-tim/",

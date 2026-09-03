@@ -2,7 +2,7 @@ import hashlib,json,pathlib,re,unittest,sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from scripts.update_watch import (
     parse_description,is_ot_relevant,source_allowed,parse_ics_rss,parse_ics_listing,
-    source_state,plausible_count
+    parse_csaf_feed,parse_csaf_advisory,source_state,plausible_count
 )
 R=pathlib.Path(__file__).resolve().parents[1]
 
@@ -47,6 +47,20 @@ class WatchTests(unittest.TestCase):
  def test_ics_listing_parser(self):
   doc=b'''<html><body><div>Sep 03, 2026</div><span>ICS Advisory | ICSA-26-246-01</span><h3><a href="/news-events/ics-advisories/example-industrial-product">Example Industrial Product</a></h3><div>Sep 02, 2026</div><span>Alert</span><h3><a href="/news-events/alerts/example">Not ICS</a></h3></body></html>'''
   rows=parse_ics_listing(doc); self.assertEqual(len(rows),1); self.assertEqual(rows[0]['id'],'ICSA-26-246-01'); self.assertEqual(rows[0]['date'],'2026-09-03')
+ def test_csaf_rolie_feed_filters_to_public_icsa(self):
+  feed={"feed":{"updated":"2026-09-03T08:00:00Z","entry":[
+   {"id":"ICSA-26-246-01","title":"Example PLC","published":"2026-09-03T06:00:00Z","updated":"2026-09-03T06:00:00Z","content":{"src":"https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/OT/white/2026/icsa-26-246-01.json"}},
+   {"id":"ICSMA-26-246-02","title":"Medical","content":{"src":"https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/OT/white/2026/icsma-26-246-02.json"}},
+   {"id":"ICSA-26-246-03","title":"Wrong path","content":{"src":"https://example.com/icsa-26-246-03.json"}}
+  ]}}
+  blob=json.dumps(feed).encode(); rows,updated,snapshot=parse_csaf_feed(blob); self.assertEqual([x['id'] for x in rows],['ICSA-26-246-01']); self.assertEqual(updated,'2026-09-03T08:00:00Z'); self.assertEqual(len(snapshot),64)
+ def test_csaf_advisory_parser_preserves_cisa_provenance(self):
+  doc={"document":{"category":"csaf_security_advisory","distribution":{"tlp":{"label":"WHITE"}},"notes":[{"category":"summary","text":"Successful exploitation could disrupt process visibility."}],"references":[{"category":"self","summary":"Web Version","url":"https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-01"}],"title":"Example Control Platform","tracking":{"id":"ICSA-26-246-01","initial_release_date":"2026-09-03T06:00:00Z","current_release_date":"2026-09-04T07:00:00Z","status":"final"}},"product_tree":{"branches":[{"category":"vendor","name":"Example Controls","branches":[{"category":"product_name","name":"Marine PLC","branches":[]}]}]},"vulnerabilities":[{"cve":"CVE-2026-12345","scores":[{"cvss_v3":{"baseScore":9.8}}]}]}
+  x=parse_csaf_advisory(doc,'ICSA-26-246-01'); self.assertEqual(x['source'],'https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-01'); self.assertEqual(x['products'][0],{'vendor':'Example Controls','product':'Marine PLC'}); self.assertEqual(x['cves'],['CVE-2026-12345']); self.assertEqual(x['cvss'],9.8); self.assertEqual(x['updated'],'2026-09-04')
+ def test_csaf_advisory_rejects_nonfinal_or_nonwhite(self):
+  base={"document":{"category":"csaf_security_advisory","distribution":{"tlp":{"label":"WHITE"}},"references":[{"url":"https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-01"}],"tracking":{"id":"ICSA-26-246-01","initial_release_date":"2026-09-03T06:00:00Z","status":"draft"}}}
+  with self.assertRaises(ValueError): parse_csaf_advisory(base,'ICSA-26-246-01')
+
  def test_plausibility_gate_rejects_empty_and_collapse(self):
   self.assertFalse(plausible_count(0,0,5)[0]); self.assertFalse(plausible_count(4,40,5)[0]); self.assertTrue(plausible_count(25,40,5)[0])
 
