@@ -148,6 +148,27 @@ def is_ot_relevant(vendor: str, product: str) -> bool:
     if any(rx.search(p) for rx in STRONG_OT_PATTERNS): return True
     return v in OT_VENDORS and any(rx.search(p) for rx in VENDOR_GATED_PATTERNS)
 
+def build_kev_signal(v: dict, ics_by_cve: dict[str,list[str]]) -> dict | None:
+    c=(v.get("cveID") or "").upper(); vendor=v.get("vendorProject") or ""; product=v.get("product") or ""
+    if not c: return None
+    direct_ot=is_ot_relevant(vendor,product); related=sorted(set(ics_by_cve.get(c,[])))
+    if not (direct_ot or related): return None
+    tags=["KEV"]
+    relevance="Known exploitation plus explicit OT product criteria; maritime deployment not asserted"
+    if related:
+        tags.append("CISA ICS-linked")
+        if not direct_ot:
+            relevance="Known exploitation; CVE appears in the current CISA ICS advisory corpus; maritime deployment not asserted"
+    signal={
+        "id":"KEV-"+c,"origin":"CISA-KEV","kind":"Known exploited vulnerability","date":v.get("dateAdded") or "",
+        "title":f"{c} — {vendor} {product} is in CISA KEV","summary":v.get("shortDescription") or "",
+        "source":"https://www.cisa.gov/known-exploited-vulnerabilities-catalog","sourceName":"CISA Known Exploited Vulnerabilities",
+        "tags":tags,"products":[{"vendor":vendor,"product":product}],"cves":[c],"kev":True,"dueDate":v.get("dueDate"),
+        "relevance":relevance
+    }
+    if related: signal["relatedIcs"]=related
+    return signal
+
 def advisory_id_from_text(text: str) -> str:
     m=re.search(r"\b(ICSMA|ICSA)-\d{2}-\d{3}-\d{2}\b", text or "", re.I)
     return m.group(0).upper() if m else ""
@@ -224,15 +245,35 @@ def parse_csaf_feed(blob: bytes) -> tuple[list[dict], str, str]:
     return out[:MAX_ICS_ITEMS], str(feed.get("updated") or "").strip(), hashlib.sha256(blob).hexdigest()
 
 
+def _clean_note_text(note: dict) -> str:
+    return " ".join(str((note or {}).get("text") or "").split())
+
 def _csaf_note(notes: list[dict]) -> str:
+    # CISA CSAF document notes often begin with deployment geography/sector metadata
+    # using category=other. Prefer semantically named advisory summaries first.
+    preferred_titles=("advisory summary","executive summary","risk evaluation","impact")
+    for wanted in preferred_titles:
+        for note in notes or []:
+            if str((note or {}).get("title") or "").strip().lower()==wanted:
+                text=_clean_note_text(note)
+                if text: return text
     for wanted in ("summary","description"):
         for note in notes or []:
-            if str((note or {}).get("category") or "").lower()==wanted and (note or {}).get("text"):
-                return " ".join(str(note["text"]).split())
-    for note in notes or []:
-        if (note or {}).get("text"): return " ".join(str(note["text"]).split())
+            if str((note or {}).get("category") or "").lower()==wanted:
+                text=_clean_note_text(note)
+                if text: return text
     return ""
 
+def clip_summary(text: str, limit: int=520) -> str:
+    text=" ".join((text or "").split())
+    if len(text)<=limit: return text
+    head=text[:limit+1]
+    sentence_ends=[m.end() for m in re.finditer(r"[.!?](?=\s|$)",head)]
+    useful=[x for x in sentence_ends if x>=max(120,int(limit*0.45))]
+    if useful: return text[:max(useful)].strip()
+    cut=text.rfind(" ",0,limit-1)
+    if cut<160: cut=limit-1
+    return text[:cut].rstrip(" ,;:")+"…"
 
 def _csaf_products(tree: dict) -> list[dict]:
     out=[]; seen=set()
@@ -246,6 +287,24 @@ def _csaf_products(tree: dict) -> list[dict]:
             walk((b or {}).get("branches") or [], current)
     walk((tree or {}).get("branches") or [])
     return out[:8]
+
+def _contextualize_products(products: list[dict], title: str) -> list[dict]:
+    # Some upstream CSAF trees expose terse child labels such as "Series B" while
+    # the document title carries the actual product family. Preserve the source
+    # label but add enough family context for a human reviewer to understand it.
+    out=[]
+    generic=re.compile(r"^(?:series|model|type|revision|rev)\s+[A-Za-z0-9_.-]+$",re.I)
+    for row in products:
+        vendor=str(row.get("vendor") or "Unspecified").strip()
+        product=str(row.get("product") or "").strip()
+        if generic.fullmatch(product):
+            family=(title or "").strip()
+            if vendor and family.lower().startswith(vendor.lower()+" "):
+                family=family[len(vendor):].strip()
+            if family and product.lower() not in family.lower():
+                product=f"{family} — {product}"
+        out.append({"vendor":vendor,"product":product})
+    return out
 
 
 def parse_csaf_advisory(doc: dict, expected_id: str="") -> dict:
@@ -274,11 +333,12 @@ def parse_csaf_advisory(doc: dict, expected_id: str="") -> dict:
         summary=" ".join(filter(None,(_csaf_note(v.get("notes") or []) for v in vulns)))
     title=str(meta.get("title") or sid).strip(); products=_csaf_products(doc.get("product_tree") or {})
     if not products: products=[{"vendor":"Unspecified","product":title}]
+    products=_contextualize_products(products,title)
     released=str(tracking.get("initial_release_date") or "")[:10]; updated=str(tracking.get("current_release_date") or "")[:10]
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}",released): raise ValueError("CSAF advisory lacks valid initial release date")
     out={
         "id":sid,"origin":"CISA-ICS","kind":"CISA ICS advisory","date":released,"title":title,
-        "summary":summary[:520] if summary else f"CISA ICS Advisory {sid}. Open the primary source for affected products, versions, mitigations, and revisions.",
+        "summary":clip_summary(summary) if summary else f"CISA ICS Advisory {sid}. Open the primary source for affected products, versions, mitigations, and revisions.",
         "source":source,"sourceName":"CISA ICS Advisory","tags":["CISA ICS","CSAF"],"products":products,"cves":cves,
         "relevance":"Official CISA ICS advisory; maritime deployment not asserted"
     }
@@ -375,25 +435,21 @@ def main():
     sources={"curated":source_state(old,"curated",checked,True,len(curated),mode="local-registry",note="Local curated registry loaded; individual records retain their own source dates")}
     ics,ics_state=acquire_ics(old); sources["cisaIcs"]=ics_state
 
-    selected_cves={c for s in ics for c in s.get("cves",[])}; kev=[]
+    ics_by_cve={}
+    for s in ics:
+        for c in s.get("cves",[]): ics_by_cve.setdefault(c,[]).append(s["id"])
+    selected_cves=set(ics_by_cve); kev=[]
     try:
         catalog=fetch_json(KEV_URL); rows=catalog.get("vulnerabilities",[])
         for v in rows:
-            c=(v.get("cveID") or "").upper(); vendor=v.get("vendorProject") or ""; product=v.get("product") or ""
-            if not c or not (c in selected_cves or is_ot_relevant(vendor,product)): continue
-            kev.append({
-                "id":"KEV-"+c,"origin":"CISA-KEV","kind":"Known exploited vulnerability","date":v.get("dateAdded") or "",
-                "title":f"{c} — {vendor} {product} is in CISA KEV","summary":v.get("shortDescription") or "",
-                "source":"https://www.cisa.gov/known-exploited-vulnerabilities-catalog","sourceName":"CISA Known Exploited Vulnerabilities",
-                "tags":["KEV"],"products":[{"vendor":vendor,"product":product}],"cves":[c],"kev":True,"dueDate":v.get("dueDate"),
-                "relevance":"Known exploitation plus explicit OT product/CVE criteria; maritime deployment not asserted"
-            })
+            signal=build_kev_signal(v,ics_by_cve)
+            if signal: kev.append(signal)
         ok,why=plausible_count(len(kev), live_prior_count(old,"CISA-KEV"), 1)
         # For KEV a large reduction is expected in RC2 because the selector is intentionally stricter;
         # only enforce anti-collapse after a prior corpus was itself generated under RC2 semantics.
         prior_selector=(old.get("meta",{}).get("selectorVersion") or "")
-        if prior_selector == "ot-relevance/v2" and not ok: raise ValueError(why)
-        sources["cisaKev"]=source_state(old,"cisaKev",checked,True,len(kev),mode="live-acquisition",note="Token-aware OT selector v2")
+        if prior_selector.startswith("ot-relevance/v2") and not ok: raise ValueError(why)
+        sources["cisaKev"]=source_state(old,"cisaKev",checked,True,len(kev),mode="live-acquisition",note="Token-aware OT selector v2.1; ICS-linked CVEs labeled explicitly")
     except Exception as e:
         kev=prior_by_origin(old,"CISA-KEV"); sources["cisaKev"]=source_state(old,"cisaKev",checked,False,len(kev),str(e),mode="live-acquisition"); print("WARN CISA KEV:",e,file=sys.stderr)
 
@@ -418,7 +474,7 @@ def main():
     data_as_of=min(critical_success) if len(critical_success)==2 else None
     doc={
         "meta":{
-            "schema":"maritime-ot-watch/v2","selectorVersion":"ot-relevance/v2","acquisitionVersion":"cisa-ics-csaf/v1","generatedAt":checked,"dataAsOf":data_as_of,
+            "schema":"maritime-ot-watch/v2","selectorVersion":"ot-relevance/v2.1","acquisitionVersion":"cisa-ics-csaf/v1.1","generatedAt":checked,"dataAsOf":data_as_of,
             "health":health,"sources":sources,
             "uscgDeadline":"2027-07-16",
             "uscgSource":"https://www.news.uscg.mil/maritime-commons/Article/4247529/final-rule-cybersecurity-in-the-marine-transportation-system-implementation-tim/",

@@ -13,7 +13,7 @@ Successful transport alone is not sufficient. CISA ICS acquisition is subject to
 ## CISA ICS policy
 Records classified by CISA as **ICS Advisory** are eligible for the public Watch without a second generic keyword filter. The primary acquisition path is CISA's official **TLP:WHITE Operational Technology CSAF ROLIE feed** published from the `cisagov/CSAF` repository. CISA's repository identifies itself as the machine-readable CSAF source for CISA IT and OT advisories; signal-level source links remain the corresponding `cisa.gov` advisory pages.
 
-The updater accepts only final, TLP:WHITE `ICSA-*` documents from the OT/white feed, excludes ICS Medical advisories, requires the document's CISA web self-reference, and records both the ROLIE feed update timestamp and SHA-256 of the exact feed snapshot used. Direct CISA RSS and the CISA ICS Advisory listing remain fail-closed fallback paths. If all paths fail, prior CISA ICS records are preserved and `lastSuccess` does not advance.
+The updater accepts only final, TLP:WHITE `ICSA-*` documents from the OT/white feed, excludes ICS Medical advisories, requires the document's CISA web self-reference, and records both the ROLIE feed update timestamp and SHA-256 of the exact feed snapshot used. CSAF note normalization prefers notes explicitly titled `Advisory Summary` (and then structured summary/description notes) instead of geographic or sector metadata. When CISA exposes only a generic child product label such as `Series B`, the Watch retains that label but qualifies it with the advisory product family for reviewer clarity. Direct CISA RSS and the CISA ICS Advisory listing remain fail-closed fallback paths. If all paths fail, prior CISA ICS records are preserved and `lastSuccess` does not advance.
 
 The GitHub-hosted CSAF feed is not treated as a secondary editorial source: it is CISA's own machine-readable publication channel. Secondary reporting remains excluded as authority.
 
@@ -26,5 +26,7 @@ KEV inclusion is intentionally precision-biased. A KEV record enters only when:
 4. the vendor/product pair is an explicit bounded industrial exception.
 
 Matching is token-aware where ambiguity matters. Ordinary IT strings such as `driver`, `Virtual`, `Apache`, `Compact`, and generic application-delivery `controller` products must not qualify merely because they contain the letter sequences `drive`, `RTU`, `PAC`, or `controller`.
+
+When a KEV record enters **only** because its CVE is present in a current CISA ICS advisory, the Watch labels that relationship explicitly and records the related `ICSA-*` identifiers. This prevents a generic upstream KEV product name (for example a bundled database/runtime component) from being mistaken for a product that independently passed the OT product selector.
 
 “Selected” means review-worthy industrial-control relevance. It does not assert maritime deployment.

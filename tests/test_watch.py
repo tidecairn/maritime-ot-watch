@@ -2,7 +2,7 @@ import hashlib,json,pathlib,re,unittest,sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from scripts.update_watch import (
     parse_description,is_ot_relevant,source_allowed,parse_ics_rss,parse_ics_listing,
-    parse_csaf_feed,parse_csaf_advisory,source_state,plausible_count
+    parse_csaf_feed,parse_csaf_advisory,source_state,plausible_count,clip_summary,build_kev_signal
 )
 R=pathlib.Path(__file__).resolve().parents[1]
 
@@ -60,6 +60,25 @@ class WatchTests(unittest.TestCase):
  def test_csaf_advisory_rejects_nonfinal_or_nonwhite(self):
   base={"document":{"category":"csaf_security_advisory","distribution":{"tlp":{"label":"WHITE"}},"references":[{"url":"https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-01"}],"tracking":{"id":"ICSA-26-246-01","initial_release_date":"2026-09-03T06:00:00Z","status":"draft"}}}
   with self.assertRaises(ValueError): parse_csaf_advisory(base,'ICSA-26-246-01')
+
+
+ def test_csaf_prefers_advisory_summary_over_geography(self):
+  doc={"document":{"category":"csaf_security_advisory","distribution":{"tlp":{"label":"WHITE"}},"notes":[
+   {"category":"other","title":"Countries/areas deployed","text":"Worldwide"},
+   {"category":"other","title":"Critical infrastructure sectors","text":"Critical Manufacturing"},
+   {"category":"other","title":"Advisory Summary","text":"Successful exploitation could force a nonrecoverable fault requiring controller recovery."}
+  ],"references":[{"url":"https://www.cisa.gov/news-events/ics-advisories/icsa-26-244-05"}],"title":"Rockwell Automation ControlLogix","tracking":{"id":"ICSA-26-244-05","initial_release_date":"2026-09-01T06:00:00Z","status":"final"}},"product_tree":{"branches":[]},"vulnerabilities":[]}
+  x=parse_csaf_advisory(doc,'ICSA-26-244-05'); self.assertTrue(x['summary'].startswith('Successful exploitation')); self.assertNotEqual(x['summary'],'Worldwide')
+ def test_csaf_contextualizes_generic_series_labels(self):
+  doc={"document":{"category":"csaf_security_advisory","distribution":{"tlp":{"label":"WHITE"}},"references":[{"url":"https://www.cisa.gov/news-events/ics-advisories/icsa-26-244-06"}],"title":"Rockwell Automation Historian ME","tracking":{"id":"ICSA-26-244-06","initial_release_date":"2026-09-01T06:00:00Z","status":"final"}},"product_tree":{"branches":[{"category":"vendor","name":"Rockwell Automation","branches":[{"category":"product_name","name":"Series B","branches":[]},{"category":"product_name","name":"Series C","branches":[]}]}]},"vulnerabilities":[{"cve":"CVE-2026-12661","notes":[{"category":"summary","text":"A denial-of-service issue affects the product."}]}]}
+  x=parse_csaf_advisory(doc,'ICSA-26-244-06'); self.assertEqual(x['products'][0]['product'],'Historian ME — Series B'); self.assertEqual(x['products'][1]['product'],'Historian ME — Series C')
+ def test_summary_clipping_avoids_mid_sentence(self):
+  text=("First sentence explains the operational effect clearly. "*8)+"A final sentence that should not be cut in half because the display limit is reached."
+  clipped=clip_summary(text,220); self.assertLessEqual(len(clipped),220); self.assertTrue(clipped.endswith('.'))
+ def test_kev_ics_linkage_is_explicit(self):
+  v={"cveID":"CVE-2019-11043","vendorProject":"PHP","product":"FastCGI Process Manager (FPM)","dateAdded":"2022-03-25","dueDate":"2022-04-15","shortDescription":"RCE"}
+  x=build_kev_signal(v,{"CVE-2019-11043":["ICSA-26-239-02"]}); self.assertEqual(x['relatedIcs'],['ICSA-26-239-02']); self.assertIn('CISA ICS-linked',x['tags']); self.assertIn('appears in the current CISA ICS advisory corpus',x['relevance'])
+  self.assertIsNone(build_kev_signal(v,{}))
 
  def test_plausibility_gate_rejects_empty_and_collapse(self):
   self.assertFalse(plausible_count(0,0,5)[0]); self.assertFalse(plausible_count(4,40,5)[0]); self.assertTrue(plausible_count(25,40,5)[0])
