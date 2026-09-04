@@ -3,15 +3,15 @@
     "schema": "maritime-ot-watch/v2",
     "selectorVersion": "ot-relevance/v2.1",
     "acquisitionVersion": "cisa-ics-csaf/v1.1",
-    "generatedAt": "2026-09-03T08:19:57Z",
-    "dataAsOf": "2026-09-03T08:19:57Z",
+    "generatedAt": "2026-09-04T13:47:14Z",
+    "dataAsOf": "2026-09-04T13:47:14Z",
     "health": "HEALTHY",
     "sources": {
       "curated": {
         "status": "healthy",
         "mode": "local-registry",
-        "checkedAt": "2026-09-03T08:19:57Z",
-        "lastSuccess": "2026-09-03T08:19:57Z",
+        "checkedAt": "2026-09-04T13:47:14Z",
+        "lastSuccess": "2026-09-04T13:47:14Z",
         "recordCount": 6,
         "error": "",
         "note": "Local curated registry loaded; individual records retain their own source dates"
@@ -19,29 +19,29 @@
       "cisaIcs": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-03T08:19:57Z",
-        "lastSuccess": "2026-09-03T08:19:57Z",
+        "checkedAt": "2026-09-04T13:47:14Z",
+        "lastSuccess": "2026-09-04T13:47:14Z",
         "recordCount": 50,
         "error": "",
         "note": "CISA official OT TLP:WHITE CSAF ROLIE feed (cisagov/CSAF)",
-        "feedUpdated": "2026-09-01T22:50:42.359123Z",
-        "snapshotSha256": "aee64cd01f7a1f4d94fec0da1ce199a3684f7ead329c3ee2d52022f882c9741e"
+        "feedUpdated": "2026-09-03T17:39:23.867765Z",
+        "snapshotSha256": "5be4d6645f35ee9f98093b611536205ca83f07ccece1c6a3c6b2408535048dd7"
       },
       "cisaKev": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-03T08:19:57Z",
-        "lastSuccess": "2026-09-03T08:19:57Z",
-        "recordCount": 9,
+        "checkedAt": "2026-09-04T13:47:14Z",
+        "lastSuccess": "2026-09-04T13:47:14Z",
+        "recordCount": 8,
         "error": "",
         "note": "Token-aware OT selector v2.1; ICS-linked CVEs labeled explicitly"
       },
       "firstEpss": {
         "status": "healthy",
         "mode": "enrichment",
-        "checkedAt": "2026-09-03T08:19:57Z",
-        "lastSuccess": "2026-09-03T08:19:57Z",
-        "recordCount": 153,
+        "checkedAt": "2026-09-04T13:47:14Z",
+        "lastSuccess": "2026-09-04T13:47:14Z",
+        "recordCount": 121,
         "error": "",
         "note": ""
       }
@@ -51,6 +51,218 @@
     "commercialEmail": "contact@tidecairn.com"
   },
   "signals": [
+    {
+      "id": "ICSA-26-246-08",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-09-03",
+      "title": "Tycon Systems TPDIN-Monitor-WEB3",
+      "summary": "Successful exploitation of these vulnerabilities could allow for an attacker to perform a man-in-the-middle (MitM) attack, cause a factory reset, wipe credentials, or retrieve sensitive information.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-08",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Tycon Systems",
+          "product": "TPDIN-Monitor-WEB3"
+        }
+      ],
+      "cves": [
+        "CVE-2026-77847",
+        "CVE-2026-82684",
+        "CVE-2026-82712"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 8.8
+    },
+    {
+      "id": "ICSA-26-246-07",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-09-03",
+      "title": "Pyramid Solutions NetStaX EtherNet/IP Stack",
+      "summary": "Successful exploitation of this vulnerability could result in memory corruption, a device crash, or a potential remote attack vector without the originating device receiving a CIP error indicating that the request could not be processed.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-07",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Pyramid Solutions",
+          "product": "EtherNet/IP Adapter DLL Kit (EIPA)"
+        },
+        {
+          "vendor": "Pyramid Solutions",
+          "product": "EtherNet/IP Adapter DLL Kit with CIP Security (EIPA-SECURE)"
+        },
+        {
+          "vendor": "Pyramid Solutions",
+          "product": "EtherNet/IP Adapter Development Kit (EADK)"
+        },
+        {
+          "vendor": "Pyramid Solutions",
+          "product": "EtherNet/IP Adapter Development Kit with CIP Security (EADK-SECURE)"
+        },
+        {
+          "vendor": "Pyramid Solutions",
+          "product": "EtherNet/IP Scanner DLL Kit (EIPS)"
+        },
+        {
+          "vendor": "Pyramid Solutions",
+          "product": "EtherNet/IP Scanner DLL Kit with CIP Security (EIPS-SECURE)"
+        },
+        {
+          "vendor": "Pyramid Solutions",
+          "product": "EtherNet/IP Scanner Development Kit (ESDK)"
+        },
+        {
+          "vendor": "Pyramid Solutions",
+          "product": "EtherNet/IP Scanner Development Kit with CIP Security (ESDK-SECURE)"
+        }
+      ],
+      "cves": [
+        "CVE-2026-78012"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 9.8,
+      "epss": 0.00395,
+      "epssPercentile": 0.3264
+    },
+    {
+      "id": "ICSA-26-246-06",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-09-03",
+      "title": "Inductive Automation Ignition",
+      "summary": "Successful exploitation of this vulnerability could allow any authenticated user to create projects.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-06",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Inductive Automation",
+          "product": "Ignition"
+        }
+      ],
+      "cves": [
+        "CVE-2026-77393"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 8.8
+    },
+    {
+      "id": "ICSA-26-246-05",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-09-03",
+      "title": "Rockwell Automation 1756-ENBT Module",
+      "summary": "Successful exploitation of this vulnerability could crash the module. The device requires a restart to recover.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-05",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Rockwell Automation",
+          "product": "1756-ENBT module"
+        }
+      ],
+      "cves": [
+        "CVE-2025-10478"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 7.5
+    },
+    {
+      "id": "ICSA-26-246-04",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-09-03",
+      "title": "Rockwell Automation ArmorStart LT",
+      "summary": "Successful exploitation of these vulnerabilities could result in a loss of webserver availability or allow an attacker to inject malicious scripts that will be executed when other users access the affected page.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-04",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Rockwell Automation",
+          "product": "ArmorStart LT"
+        }
+      ],
+      "cves": [
+        "CVE-2026-19471",
+        "CVE-2026-19472"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 7.5,
+      "epss": 0.00289,
+      "epssPercentile": 0.21023
+    },
+    {
+      "id": "ICSA-26-246-03",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-09-03",
+      "title": "Rockwell Automation ControlFLASH",
+      "summary": "Successful exploitation of this vulnerability could give an attacker the ability to run any commands or code of the attacker's choice on a target machine at the logged-in user's permission level.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-03",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Rockwell Automation",
+          "product": "ControlFLASH"
+        }
+      ],
+      "cves": [
+        "CVE-2026-12663"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 7.3,
+      "epss": 0.00105,
+      "epssPercentile": 0.01173
+    },
+    {
+      "id": "ICSA-26-246-01",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-09-03",
+      "title": "OPCFoundation OPC UA LocalDiscoveryServer (LDS)",
+      "summary": "Successful exploitation of this vulnerability could allow an attacker to take control of a high-privilege terminal during installation and run arbitrary commands.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-01",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "OPCFoundation",
+          "product": "UA-LDS-Installers"
+        }
+      ],
+      "cves": [
+        "CVE-2026-77477"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 4.6
+    },
     {
       "id": "ICSA-26-244-06",
       "origin": "CISA-ICS",
@@ -81,7 +293,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.0,
       "epss": 0.00285,
-      "epssPercentile": 0.20576
+      "epssPercentile": 0.20589
     },
     {
       "id": "ICSA-26-244-05",
@@ -124,7 +336,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 7.5,
       "epss": 0.03348,
-      "epssPercentile": 0.8784
+      "epssPercentile": 0.87844
     },
     {
       "id": "ICSA-26-244-04",
@@ -151,7 +363,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 7.8,
       "epss": 0.00105,
-      "epssPercentile": 0.01154
+      "epssPercentile": 0.01149
     },
     {
       "id": "ICSA-26-244-03",
@@ -190,7 +402,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 7.5,
       "epss": 0.00312,
-      "epssPercentile": 0.23503
+      "epssPercentile": 0.23526
     },
     {
       "id": "ICSA-26-244-02",
@@ -218,7 +430,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 7.3,
       "epss": 0.00091,
-      "epssPercentile": 0.00552
+      "epssPercentile": 0.00549
     },
     {
       "id": "ICSA-26-244-01",
@@ -248,7 +460,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.6,
       "epss": 0.00312,
-      "epssPercentile": 0.23502
+      "epssPercentile": 0.23522
     },
     {
       "id": "ICSA-26-239-05",
@@ -287,7 +499,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 9.8,
       "epss": 0.0053,
-      "epssPercentile": 0.42763
+      "epssPercentile": 0.42787
     },
     {
       "id": "ICSA-26-239-04",
@@ -315,7 +527,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 9.8,
       "epss": 0.17366,
-      "epssPercentile": 0.969
+      "epssPercentile": 0.96903
     },
     {
       "id": "ICSA-26-239-03",
@@ -411,7 +623,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 9.8,
       "epss": 0.0122,
-      "epssPercentile": 0.66617
+      "epssPercentile": 0.66638
     },
     {
       "id": "ICSA-26-237-07",
@@ -439,7 +651,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 9.1,
       "epss": 0.00331,
-      "epssPercentile": 0.25754
+      "epssPercentile": 0.25776
     },
     {
       "id": "ICSA-26-237-06",
@@ -476,7 +688,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 9.8,
       "epss": 0.0053,
-      "epssPercentile": 0.42763
+      "epssPercentile": 0.42787
     },
     {
       "id": "ICSA-26-237-05",
@@ -533,7 +745,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 7.5,
       "epss": 0.00334,
-      "epssPercentile": 0.26072
+      "epssPercentile": 0.26095
     },
     {
       "id": "ICSA-26-237-04",
@@ -560,7 +772,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.8,
       "epss": 0.00442,
-      "epssPercentile": 0.3697
+      "epssPercentile": 0.36995
     },
     {
       "id": "ICSA-26-237-02",
@@ -587,7 +799,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.8,
       "epss": 0.02315,
-      "epssPercentile": 0.82248
+      "epssPercentile": 0.8226
     },
     {
       "id": "ICSA-26-237-01",
@@ -614,7 +826,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.1,
       "epss": 0.0035,
-      "epssPercentile": 0.27844
+      "epssPercentile": 0.27866
     },
     {
       "id": "ICSA-26-232-01",
@@ -673,7 +885,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.8,
       "epss": 0.00326,
-      "epssPercentile": 0.25157
+      "epssPercentile": 0.25182
     },
     {
       "id": "ICSA-26-225-14",
@@ -712,7 +924,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.0,
       "epss": 0.00295,
-      "epssPercentile": 0.21647
+      "epssPercentile": 0.21662
     },
     {
       "id": "ICSA-26-225-05",
@@ -746,7 +958,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.1,
       "epss": 0.00318,
-      "epssPercentile": 0.24267
+      "epssPercentile": 0.24287
     },
     {
       "id": "ICSA-26-225-03",
@@ -774,7 +986,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 6.8,
       "epss": 0.00267,
-      "epssPercentile": 0.18546
+      "epssPercentile": 0.18561
     },
     {
       "id": "ICSA-26-225-02",
@@ -801,7 +1013,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 10.0,
       "epss": 0.01935,
-      "epssPercentile": 0.7866
+      "epssPercentile": 0.78675
     },
     {
       "id": "ICSA-26-225-01",
@@ -832,7 +1044,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 7.1,
       "epss": 0.00333,
-      "epssPercentile": 0.25961
+      "epssPercentile": 0.25985
     },
     {
       "id": "ICSA-26-237-03",
@@ -860,7 +1072,7 @@
       "cvss": 10.0,
       "updated": "2026-08-25",
       "epss": 0.00654,
-      "epssPercentile": 0.48896
+      "epssPercentile": 0.48925
     },
     {
       "id": "ICSA-26-230-02",
@@ -892,7 +1104,7 @@
       "cvss": 7.8,
       "updated": "2026-08-18",
       "epss": 0.00117,
-      "epssPercentile": 0.01862
+      "epssPercentile": 0.01865
     },
     {
       "id": "ICSA-26-225-13",
@@ -959,7 +1171,7 @@
       "cvss": 7.8,
       "updated": "2026-08-13",
       "epss": 0.00113,
-      "epssPercentile": 0.01588
+      "epssPercentile": 0.01589
     },
     {
       "id": "ICSA-26-225-11",
@@ -1068,7 +1280,7 @@
       "cvss": 4.3,
       "updated": "2026-08-13",
       "epss": 0.00167,
-      "epssPercentile": 0.06188
+      "epssPercentile": 0.06173
     },
     {
       "id": "ICSA-26-225-07",
@@ -1097,7 +1309,7 @@
       "cvss": 7.5,
       "updated": "2026-08-12",
       "epss": 0.00472,
-      "epssPercentile": 0.39023
+      "epssPercentile": 0.39054
     },
     {
       "id": "ICSA-26-225-06",
@@ -1126,16 +1338,16 @@
       "cvss": 6.1,
       "updated": "2026-08-12",
       "epss": 0.00385,
-      "epssPercentile": 0.31548
+      "epssPercentile": 0.3155
     },
     {
-      "id": "ICSA-26-219-01",
+      "id": "ICSA-26-246-02",
       "origin": "CISA-ICS",
       "kind": "CISA ICS advisory",
-      "date": "2026-08-07",
-      "title": "CPDLC over ATN-B1 Vulnerabilities",
-      "summary": "ATN-B1 CPDLC relies on legacy clear text unauthenticated radio frequency links. Research demonstrates that these characteristics allow unauthorized message injection, denial-of-service conditions, and forced session resets. These vulnerabilities do not constitute an unsafe aircraft condition but can degrade operational safety margins by increasing workload, delaying safety-critical instructions, and reducing situational awareness.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-219-01",
+      "date": "2026-08-05",
+      "title": "IXON VPN Client",
+      "summary": "Successful exploitation of this vulnerability could allow an attacker to perform remote code execution on the computer running the client with elevated privileges.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-02",
       "sourceName": "CISA ICS Advisory",
       "tags": [
         "CISA ICS",
@@ -1143,309 +1355,16 @@
       ],
       "products": [
         {
-          "vendor": "Unspecified",
-          "product": "ATN-B1 CPDLC"
+          "vendor": "IXON",
+          "product": "VPN Client"
         }
       ],
       "cves": [
-        "CVE-2025-71409",
-        "CVE-2025-71410",
-        "CVE-2025-71411",
-        "CVE-2025-71412",
-        "CVE-2025-71413"
+        "CVE-2026-75925"
       ],
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 7.1,
-      "epss": 0.002,
-      "epssPercentile": 0.09842
-    },
-    {
-      "id": "ICSA-26-218-02",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-08-06",
-      "title": "Johnson Controls Inc. TL280",
-      "summary": "Successful exploitation of this vulnerability could allow an attacker to access sensitive information on the device.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-02",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Johnson Controls Inc.",
-          "product": "TL280"
-        }
-      ],
-      "cves": [
-        "CVE-2026-27871"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 4.1,
-      "epss": 0.00177,
-      "epssPercentile": 0.07334
-    },
-    {
-      "id": "ICSA-26-216-01",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-08-04",
-      "title": "Acrisure KARR BT and DR-100",
-      "summary": "Successful exploitation of this vulnerability could allow an attacker to perform unauthorized vehicle control operations.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-216-01",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Acrisure",
-          "product": "KARR BT"
-        },
-        {
-          "vendor": "Acrisure",
-          "product": "DR-100"
-        }
-      ],
-      "cves": [
-        "CVE-2026-18411"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 8.1,
-      "epss": 0.00209,
-      "epssPercentile": 0.10998
-    },
-    {
-      "id": "ICSA-26-218-01",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-30",
-      "title": "ABB Ability Zenon",
-      "summary": "ABB is aware of publicly reported vulnerabilities affecting MongoDB 4.2, which is bundled within the IIoT Services of the affected product versions. MongoDB 4.2 has reached end-of-life and contains multiple known security vulnerabilities. An attacker who successfully exploits these vulnerabilities could potentially access sensitive information, cause denial of service, or disrupt system availability.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-218-01",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "ABB",
-          "product": "Ability Zenon"
-        },
-        {
-          "vendor": "Unspecified",
-          "product": "IIoT services with MongoDB"
-        }
-      ],
-      "cves": [
-        "CVE-2020-7921",
-        "CVE-2020-7923",
-        "CVE-2020-7924",
-        "CVE-2020-7925",
-        "CVE-2020-7928",
-        "CVE-2020-7929",
-        "CVE-2021-20328",
-        "CVE-2021-20330",
-        "CVE-2021-20333",
-        "CVE-2021-20334",
-        "CVE-2021-32036",
-        "CVE-2021-32040",
-        "CVE-2025-14847"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 7.8,
-      "updated": "2026-08-06",
-      "epss": 0.83218,
-      "epssPercentile": 0.99655
-    },
-    {
-      "id": "ICSA-26-211-11",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-30",
-      "title": "MZ Automation lib60870",
-      "summary": "Successful exploitation of these vulnerabilities could crash the device being accessed.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-11",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "MZ Automation GmbH",
-          "product": "lib60870"
-        }
-      ],
-      "cves": [
-        "CVE-2026-61893",
-        "CVE-2026-63033"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 6.5,
-      "epss": 0.00264,
-      "epssPercentile": 0.18013
-    },
-    {
-      "id": "ICSA-26-211-10",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-30",
-      "title": "MZ Automation GmbH libiec61850",
-      "summary": "Successful exploitation of these vulnerabilities could allow an attacker to cause a denial-of-service condition on the device.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-10",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "MZ Automation GmbH",
-          "product": "libiec61850"
-        }
-      ],
-      "cves": [
-        "CVE-2026-56758",
-        "CVE-2026-63550",
-        "CVE-2026-65421",
-        "CVE-2026-66349",
-        "CVE-2026-66360",
-        "CVE-2026-66364",
-        "CVE-2026-66369",
-        "CVE-2026-66720"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 7.5,
-      "epss": 0.00278,
-      "epssPercentile": 0.19916
-    },
-    {
-      "id": "ICSA-26-211-09",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-30",
-      "title": "Watchfire Controller Software",
-      "summary": "Successful exploitation of this vulnerability could allow a malicious user the ability to deliver malicious firmware that can update and gain full control of the controller.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-09",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Watchfire",
-          "product": "BC550"
-        },
-        {
-          "vendor": "Watchfire",
-          "product": "BC750"
-        },
-        {
-          "vendor": "Watchfire",
-          "product": "BC760"
-        },
-        {
-          "vendor": "Watchfire",
-          "product": "BC760DC"
-        }
-      ],
-      "cves": [
-        "CVE-2026-5846"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 5.7,
-      "epss": 0.00163,
-      "epssPercentile": 0.05757
-    },
-    {
-      "id": "ICSA-26-211-08",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-30",
-      "title": "o6 Automation open62541",
-      "summary": "Successful exploitation of these vulnerabilities could allow an attacker to disclose sensitive information, cause a denial of service, or potentially execute arbitrary code.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-08",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "o6 Automation GmbH",
-          "product": "open62541 on Windows and Linux"
-        }
-      ],
-      "cves": [
-        "CVE-2026-63035",
-        "CVE-2026-63362",
-        "CVE-2026-63559",
-        "CVE-2026-65423"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 8.8,
-      "epss": 0.01509,
-      "epssPercentile": 0.72663
-    },
-    {
-      "id": "ICSA-26-211-07",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-30",
-      "title": "Mitsubishi Electric CC-Link IE TSN Communication Protocol",
-      "summary": "Successful exploitation of this vulnerability could allow an attacker with access to the same network segment to tamper with communication data in the affected product by sending specially crafted packets under specific timing conditions. This could allow the attacker to cause a denial-of-service (DoS) condition in the affected product by interfering with its control function or causing it to operate incorrectly.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-211-07",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric MELSEC MX Controller MX-R model MXR300-16"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric MELSEC MX Controller MX-R model MXR300-32"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric MELSEC MX Controller MX-R model MXR300-64"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric MELSEC MX Controller MX-R model MXR500-128"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric MELSEC MX Controller MX-R model MXR500-256"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric MELSEC MX Controller MX-F model MXF100-8-N32"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric MELSEC MX Controller MX-F model MXF100-8-P32"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric MELSEC MX Controller MX-F model MXF100-16-N32"
-        }
-      ],
-      "cves": [
-        "CVE-2026-13584"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 7.1,
-      "epss": 0.00127,
-      "epssPercentile": 0.02643
+      "cvss": 9.6,
+      "updated": "2026-09-03"
     },
     {
       "id": "ICSA-26-225-04",
@@ -1475,48 +1394,6 @@
       "updated": "2026-08-13",
       "epss": 0.93235,
       "epssPercentile": 0.99828
-    },
-    {
-      "id": "ICSA-26-204-01",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-23",
-      "title": "Johnson Controls C-CURE 9000 and Victor application server (Update A)",
-      "summary": "Successful exploitation of these vulnerabilities could allow an attacker with network access to achieve remote code execution.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-204-01",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Johnson Controls",
-          "product": "C-CURE 9000"
-        },
-        {
-          "vendor": "Johnson Controls",
-          "product": "victor Application Server"
-        },
-        {
-          "vendor": "Johnson Controls",
-          "product": "victor"
-        },
-        {
-          "vendor": "Johnson Controls",
-          "product": "victor Web"
-        }
-      ],
-      "cves": [
-        "CVE-2026-21653",
-        "CVE-2026-21655",
-        "CVE-2026-34496"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 9.6,
-      "updated": "2026-08-11",
-      "epss": 0.00492,
-      "epssPercentile": 0.40361
     },
     {
       "id": "USCG-2026-07-22-SUBPARTF-WAIVERS",
@@ -1561,7 +1438,36 @@
       "cvss": 3.7,
       "updated": "2026-09-01",
       "epss": 0.00208,
-      "epssPercentile": 0.10858
+      "epssPercentile": 0.10848
+    },
+    {
+      "id": "ICSA-26-202-01",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-07-21",
+      "title": "Tycon Systems TPDIN-Monitor-WEB2 (Update A)",
+      "summary": "Successful exploitation of these vulnerabilities could result in an attacker accessing sensitive credentials, disrupting connected infrastructure, or manipulating physical equipment, which could present a physical safety risk.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-01",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Tycon Systems",
+          "product": "TPDIN-Monitor-WEB2"
+        }
+      ],
+      "cves": [
+        "CVE-2026-55985",
+        "CVE-2026-61884"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 9.8,
+      "updated": "2026-09-03",
+      "epss": 0.00664,
+      "epssPercentile": 0.49337
     },
     {
       "id": "SIEMENS-SSA-019113",
@@ -1636,7 +1542,7 @@
         "ICSA-26-069-02"
       ],
       "epss": 0.15667,
-      "epssPercentile": 0.96609
+      "epssPercentile": 0.96612
     },
     {
       "id": "USCG-2026-06-04-CSA-GUIDANCE",
@@ -1654,6 +1560,62 @@
       ],
       "products": [],
       "relevance": "Direct U.S. maritime regulatory relevance"
+    },
+    {
+      "id": "ICSA-26-169-07",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-05-12",
+      "title": "Schneider Electric Easergy, EcoStruxture, PowerLogic, and Saitel Products (Update A)",
+      "summary": "Schneider Electric is aware of a vulnerability in the following products: The Easergy C5 is a scalable and interoperable bay controller, protection and merging unit for large and critical infrastructure electrical distribution systems. The Easergy MiCOM P30 is a family of multifunction protection and control relays designed for medium, high and extra high voltage electrical networks. The Easergy MiCOM P40 is a protection relay series for Medium Voltage, High Voltage and Extra High Voltage protection.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-169-07",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM C264"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P139"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P437"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P439"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P532"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P539"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P631"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P632"
+        }
+      ],
+      "cves": [
+        "CVE-2026-4827"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 8.3,
+      "updated": "2026-09-03",
+      "epss": 0.00312,
+      "epssPercentile": 0.23524
     },
     {
       "id": "ABB-3ADR011536",
@@ -1736,7 +1698,7 @@
       "cvss": 5.9,
       "updated": "2026-08-27",
       "epss": 0.00524,
-      "epssPercentile": 0.4243
+      "epssPercentile": 0.42452
     },
     {
       "id": "ICSA-26-069-02",
@@ -1791,38 +1753,7 @@
       "cvss": 9.8,
       "updated": "2026-08-25",
       "epss": 0.15667,
-      "epssPercentile": 0.96609
-    },
-    {
-      "id": "KEV-CVE-2025-14847",
-      "origin": "CISA-KEV",
-      "kind": "Known exploited vulnerability",
-      "date": "2025-12-29",
-      "title": "CVE-2025-14847 — MongoDB MongoDB and MongoDB Server is in CISA KEV",
-      "summary": "MongoDB Server contains an improper handling of length parameter inconsistency vulnerability in Zlib compressed protocol headers. This vulnerability may allow a read of uninitialized heap memory by an unauthenticated client.",
-      "source": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-      "sourceName": "CISA Known Exploited Vulnerabilities",
-      "tags": [
-        "KEV",
-        "CISA ICS-linked"
-      ],
-      "products": [
-        {
-          "vendor": "MongoDB",
-          "product": "MongoDB and MongoDB Server"
-        }
-      ],
-      "cves": [
-        "CVE-2025-14847"
-      ],
-      "kev": true,
-      "dueDate": "2026-01-19",
-      "relevance": "Known exploitation; CVE appears in the current CISA ICS advisory corpus; maritime deployment not asserted",
-      "relatedIcs": [
-        "ICSA-26-218-01"
-      ],
-      "epss": 0.83218,
-      "epssPercentile": 0.99655
+      "epssPercentile": 0.96612
     },
     {
       "id": "KEV-CVE-2021-26828",
@@ -1849,7 +1780,7 @@
       "dueDate": "2025-12-24",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.39356,
-      "epssPercentile": 0.98502
+      "epssPercentile": 0.98503
     },
     {
       "id": "KEV-CVE-2021-26829",
@@ -1932,7 +1863,7 @@
       "cvss": 7.5,
       "updated": "2026-08-27",
       "epss": 0.00876,
-      "epssPercentile": 0.5654
+      "epssPercentile": 0.56562
     },
     {
       "id": "ICSA-25-070-02",
@@ -1966,7 +1897,7 @@
       "cvss": 9.8,
       "updated": "2026-08-25",
       "epss": 0.00436,
-      "epssPercentile": 0.36501
+      "epssPercentile": 0.36525
     },
     {
       "id": "ICSA-24-135-04",
@@ -2033,7 +1964,7 @@
       "cvss": 6.0,
       "updated": "2026-09-01",
       "epss": 0.00335,
-      "epssPercentile": 0.26213
+      "epssPercentile": 0.26238
     },
     {
       "id": "KEV-CVE-2023-6448",
@@ -2060,7 +1991,7 @@
       "dueDate": "2023-12-18",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.02072,
-      "epssPercentile": 0.80133
+      "epssPercentile": 0.80145
     },
     {
       "id": "KEV-CVE-2022-29303",
@@ -2087,7 +2018,7 @@
       "dueDate": "2023-08-03",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.97997,
-      "epssPercentile": 0.99907
+      "epssPercentile": 0.99906
     },
     {
       "id": "KEV-CVE-2016-4523",
@@ -2114,7 +2045,7 @@
       "dueDate": "2022-05-06",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.31392,
-      "epssPercentile": 0.98154
+      "epssPercentile": 0.98155
     },
     {
       "id": "KEV-CVE-2019-11043",
@@ -2172,7 +2103,7 @@
       "dueDate": "2022-03-24",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.03624,
-      "epssPercentile": 0.88719
+      "epssPercentile": 0.88726
     },
     {
       "id": "SCHNEIDER-SEVD-2020-080-01",
@@ -2200,7 +2131,7 @@
       ],
       "relevance": "Common industrial control technology; maritime deployment not asserted",
       "epss": 0.01581,
-      "epssPercentile": 0.73817
+      "epssPercentile": 0.73833
     }
   ]
 }
