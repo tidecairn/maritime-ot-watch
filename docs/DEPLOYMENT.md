@@ -2,28 +2,35 @@
 
 Maritime OT Watch uses GitHub Actions deployment rather than a `gh-pages` branch.
 
-## Pre-publication state
+## Current launch-candidate state
 
-Both workflows are intentionally `workflow_dispatch`-only. Nothing is scheduled and a source push cannot publish the site accidentally.
+The intelligence acquisition and normalization gate is closed. CISA OT CSAF, CISA KEV, FIRST EPSS, curated provenance, source-health semantics, and corpus integrity have passed controlled live validation.
 
-## First live-source validation
+Both workflows remain intentionally `workflow_dispatch`-only until the custom-domain deployment has passed live-origin QA.
 
-1. Manually run **Refresh Watch intelligence**.
-2. Confirm CISA ICS, CISA KEV, and FIRST EPSS source states are not `pending`.
-3. Review every automatically selected signal for false-positive relevance and malformed metadata.
-4. Verify `data/watch.sha256` against `data/watch.json`.
-5. Repeat local/CI tests.
+## Identity and conversion gate
 
-Do not add the six-hour schedule until this corpus review passes.
+1. Operate a real Tidecairn-domain commercial inbox (`contact@tidecairn.com`).
+2. Verify `tidecairn.com` under the Tidecairn GitHub organization's **Settings → Pages** domain-verification control and retain the TXT challenge record.
+3. Enable the Watch conversion surface only after the inbox and domain are operational.
 
 ## First Pages validation
 
-1. Configure a real Tidecairn commercial inbox and rebuild the public conversion surface.
-2. Verify the `tidecairn.com` domain in the GitHub organization.
-3. Configure `watch.tidecairn.com` DNS and the Pages custom domain.
-4. In repository Settings → Pages, choose **GitHub Actions** as the source.
+1. In repository **Settings → Pages**, choose **GitHub Actions** as the build/deployment source.
+2. Configure the custom domain as `watch.tidecairn.com`.
+3. At the authoritative DNS provider, create only the required `watch` CNAME pointing to `tidecairn.github.io`; do not use wildcard DNS.
+4. Wait for GitHub's DNS check to pass.
 5. Manually run **Publish GitHub Pages**.
-6. Perform full desktop/mobile live-origin browser QA before announcement.
-7. Only after acceptance, enable push-triggered deployment if desired.
+6. Wait for the GitHub-managed TLS certificate and enable **Enforce HTTPS** when available.
+7. Perform desktop/mobile/accessibility/security/live-data QA against `https://watch.tidecairn.com` before announcement.
+
+## Post-acceptance automation
+
+Only after live-origin acceptance:
+
+- add the six-hour intelligence refresh schedule;
+- allow successful refresh commits to trigger Pages publication;
+- update repository/public status from launch candidate to public;
+- create the first public release/tag.
 
 `dist/` is generated in CI and is intentionally not committed.

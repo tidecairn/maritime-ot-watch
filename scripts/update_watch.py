@@ -478,7 +478,7 @@ def main():
             "health":health,"sources":sources,
             "uscgDeadline":"2027-07-16",
             "uscgSource":"https://www.news.uscg.mil/maritime-commons/Article/4247529/final-rule-cybersecurity-in-the-marine-transportation-system-implementation-tim/",
-            "commercialEmail":old.get("meta",{}).get("commercialEmail","")
+            "commercialEmail":"contact@tidecairn.com"
         },
         "signals":rows
     }

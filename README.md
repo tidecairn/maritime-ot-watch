@@ -2,7 +2,7 @@
 
 Source-backed maritime OT vulnerability, exploitation, product-change, and U.S. regulatory intelligence from **Tidecairn Systems**.
 
-**Status:** pre-publication RC2.3 normalization candidate. GitHub Pages and scheduled source refresh are intentionally manual-only until the normalized live CISA CSAF/KEV/EPSS corpus has passed review.
+**Status:** pre-publication launch candidate. The public intelligence acquisition/normalization gate has passed. GitHub Pages and scheduled refresh remain manual-only until Tidecairn domain verification, custom-domain configuration, and live-origin QA are complete.
 
 Maritime OT Watch is a discovery and prioritization surface. It does **not** make facility applicability or compliance determinations. Exact identity, version applicability, operational context, evidence sufficiency, and human designation remain separate questions handled by the private TIDECAIRN Watchtower workflow.
 
@@ -43,9 +43,10 @@ The repository is intentionally configured in prelaunch mode:
 
 1. `Refresh Watch intelligence` is manual-only.
 2. `Publish GitHub Pages` is manual-only.
-3. The RC2.3 normalized live CSAF source refresh must be inspected before scheduling is enabled.
-4. A Tidecairn-domain commercial inbox must be configured before the public conversion surface is enabled.
-5. `watch.tidecairn.com` is added only after domain verification and DNS setup.
+3. The RC2.3 live intelligence corpus has passed the pre-publication acquisition/normalization gate.
+4. The public conversion surface uses `contact@tidecairn.com`.
+5. `watch.tidecairn.com` is added only after GitHub Pages domain verification and DNS setup.
+6. Scheduled refresh and push-triggered publication remain disabled until live-origin QA passes.
 
 See `methodology.html`, `privacy.html`, `docs/SOURCE-POLICY.md`, and `docs/DEPLOYMENT.md` for the public operating model.
 

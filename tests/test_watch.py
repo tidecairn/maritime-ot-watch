@@ -19,7 +19,10 @@ class WatchTests(unittest.TestCase):
  def test_no_external_script_css(self): s=(R/'index.html').read_text(encoding='utf-8'); self.assertNotRegex(s,r'<(?:script|link)[^>]+https://')
  def test_no_duplicate_class_attributes(self):
   for tag in re.findall(r'<[^>]+>',(R/'index.html').read_text(encoding='utf-8')): self.assertLessEqual(len(re.findall(r'\bclass=',tag)),1,tag)
- def test_contact_not_exposed_when_unconfigured(self): self.assertEqual(self.d['meta'].get('commercialEmail'),''); self.assertNotIn('contact-link',(R/'index.html').read_text(encoding='utf-8'))
+ def test_contact_surface_is_configured(self):
+  self.assertEqual(self.d['meta'].get('commercialEmail'),'contact@tidecairn.com')
+  html=(R/'index.html').read_text(encoding='utf-8'); js=(R/'assets/watch.js').read_text(encoding='utf-8')
+  self.assertIn('contact-link',html); self.assertIn('configureContact(m.commercialEmail)',js); self.assertIn('mailto:',js)
  def test_description_parser(self):
   x=parse_description('<b>CVSS v3 9.8</b><p>Vendor: Siemens</p><p>Equipment: SIMATIC S7-1500 PLC</p><p>CVE-2026-12345</p>'); self.assertEqual(x['cvss'],9.8); self.assertIn('CVE-2026-12345',x['cves'])
  def test_ot_relevance_positive(self):
