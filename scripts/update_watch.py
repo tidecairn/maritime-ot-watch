@@ -108,6 +108,10 @@ class CisaListingParser(HTMLParser):
 
 def utcnow(): return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
+def activity_date(signal: dict) -> str:
+    """Latest material signal date: advisory revision when present, otherwise publication/addition date."""
+    return str(signal.get("updated") or signal.get("date") or "")
+
 def fetch_bytes(url: str, timeout: int = 30) -> bytes:
     req = urllib.request.Request(url, headers={
         "User-Agent": UA,
@@ -467,14 +471,14 @@ def main():
         if vals:
             top=max(vals,key=lambda x:x["epss"]); s.update(top)
         if not source_allowed(s["source"]): raise ValueError(f"generated source host not allowlisted: {s['source']}")
-    rows=sorted(signals.values(), key=lambda x:(x.get("date") or "", x["id"]), reverse=True)
+    rows=sorted(signals.values(), key=lambda x:(activity_date(x), x.get("date") or "", x["id"]), reverse=True)
     statuses=[x["status"] for x in sources.values()]
     health="HEALTHY" if statuses and all(x=="healthy" for x in statuses) else ("DEGRADED" if statuses and all(x=="degraded" for x in statuses) else "PARTIAL")
     critical_success=[sources[k].get("lastSuccess") for k in ("cisaIcs","cisaKev") if sources.get(k,{}).get("lastSuccess")]
     data_as_of=min(critical_success) if len(critical_success)==2 else None
     doc={
         "meta":{
-            "schema":"maritime-ot-watch/v2","selectorVersion":"ot-relevance/v2.1","acquisitionVersion":"cisa-ics-csaf/v1.1","generatedAt":checked,"dataAsOf":data_as_of,
+            "schema":"maritime-ot-watch/v2","selectorVersion":"ot-relevance/v2.1","acquisitionVersion":"cisa-ics-csaf/v1.1","presentationVersion":"watch-ui/v1.1","generatedAt":checked,"dataAsOf":data_as_of,
             "health":health,"sources":sources,
             "uscgDeadline":"2027-07-16",
             "uscgSource":"https://www.news.uscg.mil/maritime-commons/Article/4247529/final-rule-cybersecurity-in-the-marine-transportation-system-implementation-tim/",

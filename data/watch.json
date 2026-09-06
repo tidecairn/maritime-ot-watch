@@ -48,7 +48,8 @@
     },
     "uscgDeadline": "2027-07-16",
     "uscgSource": "https://www.news.uscg.mil/maritime-commons/Article/4247529/final-rule-cybersecurity-in-the-marine-transportation-system-implementation-tim/",
-    "commercialEmail": "contact@tidecairn.com"
+    "commercialEmail": "contact@tidecairn.com",
+    "presentationVersion": "watch-ui/v1.1"
   },
   "signals": [
     {
@@ -264,6 +265,117 @@
       "cvss": 4.6
     },
     {
+      "id": "ICSA-26-246-02",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-08-05",
+      "title": "IXON VPN Client",
+      "summary": "Successful exploitation of this vulnerability could allow an attacker to perform remote code execution on the computer running the client with elevated privileges.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-02",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "IXON",
+          "product": "VPN Client"
+        }
+      ],
+      "cves": [
+        "CVE-2026-75925"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 9.6,
+      "updated": "2026-09-03"
+    },
+    {
+      "id": "ICSA-26-202-01",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-07-21",
+      "title": "Tycon Systems TPDIN-Monitor-WEB2 (Update A)",
+      "summary": "Successful exploitation of these vulnerabilities could result in an attacker accessing sensitive credentials, disrupting connected infrastructure, or manipulating physical equipment, which could present a physical safety risk.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-01",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Tycon Systems",
+          "product": "TPDIN-Monitor-WEB2"
+        }
+      ],
+      "cves": [
+        "CVE-2026-55985",
+        "CVE-2026-61884"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 9.8,
+      "updated": "2026-09-03",
+      "epss": 0.00664,
+      "epssPercentile": 0.49337
+    },
+    {
+      "id": "ICSA-26-169-07",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-05-12",
+      "title": "Schneider Electric Easergy, EcoStruxture, PowerLogic, and Saitel Products (Update A)",
+      "summary": "Schneider Electric is aware of a vulnerability in the following products: The Easergy C5 is a scalable and interoperable bay controller, protection and merging unit for large and critical infrastructure electrical distribution systems. The Easergy MiCOM P30 is a family of multifunction protection and control relays designed for medium, high and extra high voltage electrical networks. The Easergy MiCOM P40 is a protection relay series for Medium Voltage, High Voltage and Extra High Voltage protection.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-169-07",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM C264"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P139"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P437"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P439"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P532"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P539"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P631"
+        },
+        {
+          "vendor": "Schneider Electric",
+          "product": "Easergy MiCOM P632"
+        }
+      ],
+      "cves": [
+        "CVE-2026-4827"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 8.3,
+      "updated": "2026-09-03",
+      "epss": 0.00312,
+      "epssPercentile": 0.23524
+    },
+    {
       "id": "ICSA-26-244-06",
       "origin": "CISA-ICS",
       "kind": "CISA ICS advisory",
@@ -463,6 +575,101 @@
       "epssPercentile": 0.23522
     },
     {
+      "id": "ICSA-26-202-09",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-07-21",
+      "title": "Rockwell Automation 1734 POINT I/O (Update A)",
+      "summary": "Successful exploitation of this vulnerability could allow for an attacker to cause a denial-of-service condition on the product.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-09",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Rockwell Automation",
+          "product": "1734 POINT I/O"
+        }
+      ],
+      "cves": [
+        "CVE-2026-10573"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 3.7,
+      "updated": "2026-09-01",
+      "epss": 0.00208,
+      "epssPercentile": 0.10848
+    },
+    {
+      "id": "ICSA-24-135-04",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2024-05-14",
+      "title": "Mitsubishi Electric Multiple FA Engineering Software Products (Update G)",
+      "summary": "Multiple Vulnerabilities due to vulnerabilities in Jungo's WinDriver in multiple FA engineering software products. Successful exploitation of these vulnerabilities may allow a local attacker to cause a Windows blue screen error that results in a denial-of-service condition and/or to gain Windows system privileges and execute arbitrary commands.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-135-04",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CPU Module Logging Configuration Tool"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CSGL (GX Works2 connection configuration)"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CW Configurator"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric Data Transfer"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric Data Transfer Classic"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric EZSocket"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric FR Configurator SW3"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric FR Configurator2"
+        }
+      ],
+      "cves": [
+        "CVE-2023-51776",
+        "CVE-2023-51777",
+        "CVE-2023-51778",
+        "CVE-2024-22102",
+        "CVE-2024-22103",
+        "CVE-2024-22104",
+        "CVE-2024-22105",
+        "CVE-2024-22106",
+        "CVE-2024-25086",
+        "CVE-2024-25087",
+        "CVE-2024-25088",
+        "CVE-2024-26314"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 6.0,
+      "updated": "2026-09-01",
+      "epss": 0.00335,
+      "epssPercentile": 0.26238
+    },
+    {
       "id": "ICSA-26-239-05",
       "origin": "CISA-ICS",
       "kind": "CISA ICS advisory",
@@ -624,6 +831,118 @@
       "cvss": 9.8,
       "epss": 0.0122,
       "epssPercentile": 0.66638
+    },
+    {
+      "id": "ICSA-26-078-05",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-03-10",
+      "title": "Mitsubishi Electric CNC Series (Update A)",
+      "summary": "Successful exploitation of this vulnerability could allow a remote attacker to cause an out-of-bounds read, resulting in a denial-of-service condition in the affected products.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric M800VW (BND-2051W000)"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric M800VS (BND-2052W000)"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric M80V (BND-2053W000)"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric M80VW (BND-2054W000)"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric M800W (BND-2005W000)"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric M800S (BND-2006W000)"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric M80 (BND-2007W000)"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric M80W (BND-2008W000)"
+        }
+      ],
+      "cves": [
+        "CVE-2025-2399"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 5.9,
+      "updated": "2026-08-27",
+      "epss": 0.00524,
+      "epssPercentile": 0.42452
+    },
+    {
+      "id": "ICSA-25-128-03",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2025-04-25",
+      "title": "Mitsubishi Electric Multiple FA Products (Update D)",
+      "summary": "Successful exploitation of this vulnerability could allow a remote attacker to cause a denial-of-service (DoS) condition, a timeout error, or a communication delay by sending a specially crafted UDP packet to the product.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-128-03",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32D"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32T"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32TE"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32DT"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32DTE"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2B1-32D"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2B1-32T"
+        },
+        {
+          "vendor": "Mitsubishi Electric",
+          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2B1-32TE"
+        }
+      ],
+      "cves": [
+        "CVE-2025-3511"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 7.5,
+      "updated": "2026-08-27",
+      "epss": 0.00876,
+      "epssPercentile": 0.56562
     },
     {
       "id": "ICSA-26-237-07",
@@ -829,6 +1148,123 @@
       "epssPercentile": 0.27866
     },
     {
+      "id": "ICSA-26-237-03",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-08-11",
+      "title": "Siemens SIMATIC IoT2050 Advanced",
+      "summary": "SIMATIC IoT2050 Advanced devices running Industrial OS with Node-RED installed contain a missing authentication vulnerability in the Node-RED HTTP interface that could allow an unauthenticated remote attacker to create malicious flows and execute arbitrary code on the underlying server with maximum privileges. Siemens has released a new version for SIMATIC IoT2050 Advanced and strongly recommends to update to the latest version.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-03",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Siemens",
+          "product": "SIMATIC IoT2050 Advanced (6ES7647-0BA00-1YA2)"
+        }
+      ],
+      "cves": [
+        "CVE-2026-58115"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 10.0,
+      "updated": "2026-08-25",
+      "epss": 0.00654,
+      "epssPercentile": 0.48925
+    },
+    {
+      "id": "ICSA-26-069-02",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-03-10",
+      "title": "Lantronix EDS3000PS and EDS5000 (Update A)",
+      "summary": "Successful exploitation of these vulnerabilities could allow an attacker to bypass authentication and execute code with root-level privileges.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-069-02",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Lantronix",
+          "product": "EDS5000 series"
+        },
+        {
+          "vendor": "Lantronix",
+          "product": "EDS3000PS series"
+        },
+        {
+          "vendor": "Lantronix",
+          "product": "G520 series"
+        },
+        {
+          "vendor": "Lantronix",
+          "product": "X300 series"
+        },
+        {
+          "vendor": "Lantronix",
+          "product": "E210 series"
+        },
+        {
+          "vendor": "Lantronix",
+          "product": "E220 series"
+        }
+      ],
+      "cves": [
+        "CVE-2025-67034",
+        "CVE-2025-67035",
+        "CVE-2025-67036",
+        "CVE-2025-67037",
+        "CVE-2025-67038",
+        "CVE-2025-67039",
+        "CVE-2025-67041",
+        "CVE-2025-70082"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 9.8,
+      "updated": "2026-08-25",
+      "epss": 0.15667,
+      "epssPercentile": 0.96612
+    },
+    {
+      "id": "ICSA-25-070-02",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2025-03-11",
+      "title": "Optigo Networks Visual BACnet Capture Tool / Optigo Visual Networks Capture Tool (Update A)",
+      "summary": "Successful exploitation of these vulnerabilities could allow an attacker to bypass authentication, gain control over the products, or impersonate the web applications.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-070-02",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Optigo Networks",
+          "product": "Visual BACnet Capture Tool"
+        },
+        {
+          "vendor": "Optigo Networks",
+          "product": "Optigo Visual Networks Capture Tool"
+        }
+      ],
+      "cves": [
+        "CVE-2025-2079",
+        "CVE-2025-2080",
+        "CVE-2025-2081"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 9.8,
+      "updated": "2026-08-25",
+      "epss": 0.00436,
+      "epssPercentile": 0.36525
+    },
+    {
       "id": "ICSA-26-232-01",
       "origin": "CISA-ICS",
       "kind": "CISA ICS advisory",
@@ -886,6 +1322,38 @@
       "cvss": 8.8,
       "epss": 0.00326,
       "epssPercentile": 0.25182
+    },
+    {
+      "id": "ICSA-26-230-02",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-08-11",
+      "title": "Siemens Simcenter Nastran",
+      "summary": "Simcenter Nastran is affected by a stack overflow vulnerability that could be triggered when an application binary reads arbitrary string as a file argument. If a user is tricked to run one of the impacted application binary with a malicious string, an attacker could leverage the vulnerability to perform remote code execution in the context of the current process. Siemens has released new versions for the affected products and recommends to update to the latest versions.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-230-02",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Siemens",
+          "product": "Simcenter Femap"
+        },
+        {
+          "vendor": "Siemens",
+          "product": "Simcenter Nastran"
+        }
+      ],
+      "cves": [
+        "CVE-2026-59086"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 7.8,
+      "updated": "2026-08-18",
+      "epss": 0.00117,
+      "epssPercentile": 0.01865
     },
     {
       "id": "ICSA-26-225-14",
@@ -1045,66 +1513,6 @@
       "cvss": 7.1,
       "epss": 0.00333,
       "epssPercentile": 0.25985
-    },
-    {
-      "id": "ICSA-26-237-03",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-08-11",
-      "title": "Siemens SIMATIC IoT2050 Advanced",
-      "summary": "SIMATIC IoT2050 Advanced devices running Industrial OS with Node-RED installed contain a missing authentication vulnerability in the Node-RED HTTP interface that could allow an unauthenticated remote attacker to create malicious flows and execute arbitrary code on the underlying server with maximum privileges. Siemens has released a new version for SIMATIC IoT2050 Advanced and strongly recommends to update to the latest version.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-237-03",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Siemens",
-          "product": "SIMATIC IoT2050 Advanced (6ES7647-0BA00-1YA2)"
-        }
-      ],
-      "cves": [
-        "CVE-2026-58115"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 10.0,
-      "updated": "2026-08-25",
-      "epss": 0.00654,
-      "epssPercentile": 0.48925
-    },
-    {
-      "id": "ICSA-26-230-02",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-08-11",
-      "title": "Siemens Simcenter Nastran",
-      "summary": "Simcenter Nastran is affected by a stack overflow vulnerability that could be triggered when an application binary reads arbitrary string as a file argument. If a user is tricked to run one of the impacted application binary with a malicious string, an attacker could leverage the vulnerability to perform remote code execution in the context of the current process. Siemens has released new versions for the affected products and recommends to update to the latest versions.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-230-02",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Siemens",
-          "product": "Simcenter Femap"
-        },
-        {
-          "vendor": "Siemens",
-          "product": "Simcenter Nastran"
-        }
-      ],
-      "cves": [
-        "CVE-2026-59086"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 7.8,
-      "updated": "2026-08-18",
-      "epss": 0.00117,
-      "epssPercentile": 0.01865
     },
     {
       "id": "ICSA-26-225-13",
@@ -1283,6 +1691,35 @@
       "epssPercentile": 0.06173
     },
     {
+      "id": "ICSA-26-225-04",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-07-28",
+      "title": "Hitachi Energy APM Edge Product",
+      "summary": "Hitachi Energy is aware of Dirty Frag vulnerabilities that affect APM Edge product versions listed in this document. Successful exploitation of these vulnerabilities could result in impact on confidentiality, integrity and availability of the product. Please refer to the Recommended Immediate Actions for information about the mitigation/remediation.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-04",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Hitachi Energy",
+          "product": "APM Edge"
+        }
+      ],
+      "cves": [
+        "CVE-2026-43284",
+        "CVE-2026-43500"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 8.8,
+      "updated": "2026-08-13",
+      "epss": 0.93235,
+      "epssPercentile": 0.99828
+    },
+    {
       "id": "ICSA-26-225-07",
       "origin": "CISA-ICS",
       "kind": "CISA ICS advisory",
@@ -1341,61 +1778,6 @@
       "epssPercentile": 0.3155
     },
     {
-      "id": "ICSA-26-246-02",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-08-05",
-      "title": "IXON VPN Client",
-      "summary": "Successful exploitation of this vulnerability could allow an attacker to perform remote code execution on the computer running the client with elevated privileges.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-02",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "IXON",
-          "product": "VPN Client"
-        }
-      ],
-      "cves": [
-        "CVE-2026-75925"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 9.6,
-      "updated": "2026-09-03"
-    },
-    {
-      "id": "ICSA-26-225-04",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-28",
-      "title": "Hitachi Energy APM Edge Product",
-      "summary": "Hitachi Energy is aware of Dirty Frag vulnerabilities that affect APM Edge product versions listed in this document. Successful exploitation of these vulnerabilities could result in impact on confidentiality, integrity and availability of the product. Please refer to the Recommended Immediate Actions for information about the mitigation/remediation.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-04",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Hitachi Energy",
-          "product": "APM Edge"
-        }
-      ],
-      "cves": [
-        "CVE-2026-43284",
-        "CVE-2026-43500"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 8.8,
-      "updated": "2026-08-13",
-      "epss": 0.93235,
-      "epssPercentile": 0.99828
-    },
-    {
       "id": "USCG-2026-07-22-SUBPARTF-WAIVERS",
       "origin": "USCG",
       "kind": "Regulatory",
@@ -1411,63 +1793,6 @@
       ],
       "products": [],
       "relevance": "Direct U.S. maritime regulatory relevance"
-    },
-    {
-      "id": "ICSA-26-202-09",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-21",
-      "title": "Rockwell Automation 1734 POINT I/O (Update A)",
-      "summary": "Successful exploitation of this vulnerability could allow for an attacker to cause a denial-of-service condition on the product.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-09",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Rockwell Automation",
-          "product": "1734 POINT I/O"
-        }
-      ],
-      "cves": [
-        "CVE-2026-10573"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 3.7,
-      "updated": "2026-09-01",
-      "epss": 0.00208,
-      "epssPercentile": 0.10848
-    },
-    {
-      "id": "ICSA-26-202-01",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-07-21",
-      "title": "Tycon Systems TPDIN-Monitor-WEB2 (Update A)",
-      "summary": "Successful exploitation of these vulnerabilities could result in an attacker accessing sensitive credentials, disrupting connected infrastructure, or manipulating physical equipment, which could present a physical safety risk.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-202-01",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Tycon Systems",
-          "product": "TPDIN-Monitor-WEB2"
-        }
-      ],
-      "cves": [
-        "CVE-2026-55985",
-        "CVE-2026-61884"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 9.8,
-      "updated": "2026-09-03",
-      "epss": 0.00664,
-      "epssPercentile": 0.49337
     },
     {
       "id": "SIEMENS-SSA-019113",
@@ -1562,62 +1887,6 @@
       "relevance": "Direct U.S. maritime regulatory relevance"
     },
     {
-      "id": "ICSA-26-169-07",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-05-12",
-      "title": "Schneider Electric Easergy, EcoStruxture, PowerLogic, and Saitel Products (Update A)",
-      "summary": "Schneider Electric is aware of a vulnerability in the following products: The Easergy C5 is a scalable and interoperable bay controller, protection and merging unit for large and critical infrastructure electrical distribution systems. The Easergy MiCOM P30 is a family of multifunction protection and control relays designed for medium, high and extra high voltage electrical networks. The Easergy MiCOM P40 is a protection relay series for Medium Voltage, High Voltage and Extra High Voltage protection.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-169-07",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Schneider Electric",
-          "product": "Easergy MiCOM C264"
-        },
-        {
-          "vendor": "Schneider Electric",
-          "product": "Easergy MiCOM P139"
-        },
-        {
-          "vendor": "Schneider Electric",
-          "product": "Easergy MiCOM P437"
-        },
-        {
-          "vendor": "Schneider Electric",
-          "product": "Easergy MiCOM P439"
-        },
-        {
-          "vendor": "Schneider Electric",
-          "product": "Easergy MiCOM P532"
-        },
-        {
-          "vendor": "Schneider Electric",
-          "product": "Easergy MiCOM P539"
-        },
-        {
-          "vendor": "Schneider Electric",
-          "product": "Easergy MiCOM P631"
-        },
-        {
-          "vendor": "Schneider Electric",
-          "product": "Easergy MiCOM P632"
-        }
-      ],
-      "cves": [
-        "CVE-2026-4827"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 8.3,
-      "updated": "2026-09-03",
-      "epss": 0.00312,
-      "epssPercentile": 0.23524
-    },
-    {
       "id": "ABB-3ADR011536",
       "origin": "Vendor",
       "kind": "Vendor advisory",
@@ -1643,117 +1912,6 @@
       "relevance": "Common industrial control technology; maritime deployment not asserted",
       "epss": 0.48211,
       "epssPercentile": 0.98775
-    },
-    {
-      "id": "ICSA-26-078-05",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-03-10",
-      "title": "Mitsubishi Electric CNC Series (Update A)",
-      "summary": "Successful exploitation of this vulnerability could allow a remote attacker to cause an out-of-bounds read, resulting in a denial-of-service condition in the affected products.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-078-05",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric M800VW (BND-2051W000)"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric M800VS (BND-2052W000)"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric M80V (BND-2053W000)"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric M80VW (BND-2054W000)"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric M800W (BND-2005W000)"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric M800S (BND-2006W000)"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric M80 (BND-2007W000)"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric M80W (BND-2008W000)"
-        }
-      ],
-      "cves": [
-        "CVE-2025-2399"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 5.9,
-      "updated": "2026-08-27",
-      "epss": 0.00524,
-      "epssPercentile": 0.42452
-    },
-    {
-      "id": "ICSA-26-069-02",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-03-10",
-      "title": "Lantronix EDS3000PS and EDS5000 (Update A)",
-      "summary": "Successful exploitation of these vulnerabilities could allow an attacker to bypass authentication and execute code with root-level privileges.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-069-02",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Lantronix",
-          "product": "EDS5000 series"
-        },
-        {
-          "vendor": "Lantronix",
-          "product": "EDS3000PS series"
-        },
-        {
-          "vendor": "Lantronix",
-          "product": "G520 series"
-        },
-        {
-          "vendor": "Lantronix",
-          "product": "X300 series"
-        },
-        {
-          "vendor": "Lantronix",
-          "product": "E210 series"
-        },
-        {
-          "vendor": "Lantronix",
-          "product": "E220 series"
-        }
-      ],
-      "cves": [
-        "CVE-2025-67034",
-        "CVE-2025-67035",
-        "CVE-2025-67036",
-        "CVE-2025-67037",
-        "CVE-2025-67038",
-        "CVE-2025-67039",
-        "CVE-2025-67041",
-        "CVE-2025-70082"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 9.8,
-      "updated": "2026-08-25",
-      "epss": 0.15667,
-      "epssPercentile": 0.96612
     },
     {
       "id": "KEV-CVE-2021-26828",
@@ -1808,163 +1966,6 @@
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.4805,
       "epssPercentile": 0.9877
-    },
-    {
-      "id": "ICSA-25-128-03",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2025-04-25",
-      "title": "Mitsubishi Electric Multiple FA Products (Update D)",
-      "summary": "Successful exploitation of this vulnerability could allow a remote attacker to cause a denial-of-service (DoS) condition, a timeout error, or a communication delay by sending a specially crafted UDP packet to the product.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-128-03",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32D"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32T"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32TE"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32DT"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2S1-32DTE"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2B1-32D"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2B1-32T"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CC-Link IE TSN Remote I/O module NZ2GN2B1-32TE"
-        }
-      ],
-      "cves": [
-        "CVE-2025-3511"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 7.5,
-      "updated": "2026-08-27",
-      "epss": 0.00876,
-      "epssPercentile": 0.56562
-    },
-    {
-      "id": "ICSA-25-070-02",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2025-03-11",
-      "title": "Optigo Networks Visual BACnet Capture Tool / Optigo Visual Networks Capture Tool (Update A)",
-      "summary": "Successful exploitation of these vulnerabilities could allow an attacker to bypass authentication, gain control over the products, or impersonate the web applications.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-070-02",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Optigo Networks",
-          "product": "Visual BACnet Capture Tool"
-        },
-        {
-          "vendor": "Optigo Networks",
-          "product": "Optigo Visual Networks Capture Tool"
-        }
-      ],
-      "cves": [
-        "CVE-2025-2079",
-        "CVE-2025-2080",
-        "CVE-2025-2081"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 9.8,
-      "updated": "2026-08-25",
-      "epss": 0.00436,
-      "epssPercentile": 0.36525
-    },
-    {
-      "id": "ICSA-24-135-04",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2024-05-14",
-      "title": "Mitsubishi Electric Multiple FA Engineering Software Products (Update G)",
-      "summary": "Multiple Vulnerabilities due to vulnerabilities in Jungo's WinDriver in multiple FA engineering software products. Successful exploitation of these vulnerabilities may allow a local attacker to cause a Windows blue screen error that results in a denial-of-service condition and/or to gain Windows system privileges and execute arbitrary commands.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-135-04",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CPU Module Logging Configuration Tool"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CSGL (GX Works2 connection configuration)"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric CW Configurator"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric Data Transfer"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric Data Transfer Classic"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric EZSocket"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric FR Configurator SW3"
-        },
-        {
-          "vendor": "Mitsubishi Electric",
-          "product": "Mitsubishi Electric FR Configurator2"
-        }
-      ],
-      "cves": [
-        "CVE-2023-51776",
-        "CVE-2023-51777",
-        "CVE-2023-51778",
-        "CVE-2024-22102",
-        "CVE-2024-22103",
-        "CVE-2024-22104",
-        "CVE-2024-22105",
-        "CVE-2024-22106",
-        "CVE-2024-25086",
-        "CVE-2024-25087",
-        "CVE-2024-25088",
-        "CVE-2024-26314"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 6.0,
-      "updated": "2026-09-01",
-      "epss": 0.00335,
-      "epssPercentile": 0.26238
     },
     {
       "id": "KEV-CVE-2023-6448",

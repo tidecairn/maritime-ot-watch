@@ -6,7 +6,7 @@ Maritime OT Watch uses GitHub Actions deployment rather than a `gh-pages` branch
 
 The intelligence acquisition and normalization gate is closed. CISA OT CSAF, CISA KEV, FIRST EPSS, curated provenance, source-health semantics, and corpus integrity have passed controlled live validation.
 
-Both workflows remain intentionally `workflow_dispatch`-only until the custom-domain deployment has passed live-origin QA.
+Both workflows remain intentionally `workflow_dispatch`-only. The custom domain and HTTPS are active; the site remains an unannounced launch candidate until the final live-origin QA/repair gate passes.
 
 ## Identity and conversion gate
 
@@ -16,13 +16,14 @@ Both workflows remain intentionally `workflow_dispatch`-only until the custom-do
 
 ## First Pages validation
 
-1. In repository **Settings → Pages**, choose **GitHub Actions** as the build/deployment source.
-2. Configure the custom domain as `watch.tidecairn.com`.
-3. At the authoritative DNS provider, create only the required `watch` CNAME pointing to `tidecairn.github.io`; do not use wildcard DNS.
-4. Wait for GitHub's DNS check to pass.
-5. Manually run **Publish GitHub Pages**.
-6. Wait for the GitHub-managed TLS certificate and enable **Enforce HTTPS** when available.
-7. Perform desktop/mobile/accessibility/security/live-data QA against `https://watch.tidecairn.com` before announcement.
+Completed: GitHub Actions is the Pages source, `watch.tidecairn.com` is the verified custom domain, the `watch` CNAME points to `tidecairn.github.io`, the first Pages deployment succeeded, and GitHub-managed HTTPS is active.
+
+Remaining before announcement:
+
+1. Apply any fixes produced by the live-origin red-team gate.
+2. Manually refresh intelligence and redeploy Pages.
+3. Re-run desktop/mobile/accessibility/security/live-data QA against `https://watch.tidecairn.com`.
+4. Only after acceptance, enable post-launch automation.
 
 ## Post-acceptance automation
 

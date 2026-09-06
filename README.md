@@ -2,7 +2,7 @@
 
 Source-backed maritime OT vulnerability, exploitation, product-change, and U.S. regulatory intelligence from **Tidecairn Systems**.
 
-**Status:** pre-publication launch candidate. The public intelligence acquisition/normalization gate has passed. GitHub Pages and scheduled refresh remain manual-only until Tidecairn domain verification, custom-domain configuration, and live-origin QA are complete.
+**Status:** live-origin launch candidate. The public intelligence acquisition/normalization gate has passed, `watch.tidecairn.com` is active under GitHub Pages with HTTPS, and the final live-origin QA/repair gate is in progress. Scheduled refresh remains manual-only until that gate closes.
 
 Maritime OT Watch is a discovery and prioritization surface. It does **not** make facility applicability or compliance determinations. Exact identity, version applicability, operational context, evidence sufficiency, and human designation remain separate questions handled by the private TIDECAIRN Watchtower workflow.
 
@@ -11,9 +11,9 @@ Maritime OT Watch is a discovery and prioritization surface. It does **not** mak
 - Organization: `tidecairn`
 - Company: **Tidecairn Systems**
 - Canonical company domain: `tidecairn.com`
-- Planned Watch origin: `watch.tidecairn.com`
+- Watch origin: `https://watch.tidecairn.com`
 
-The custom Watch origin is not activated until DNS and live-origin QA are complete.
+The Watch origin is active but remains unannounced until live-origin QA closes.
 
 ## Data sources
 
@@ -45,7 +45,7 @@ The repository is intentionally configured in prelaunch mode:
 2. `Publish GitHub Pages` is manual-only.
 3. The RC2.3 live intelligence corpus has passed the pre-publication acquisition/normalization gate.
 4. The public conversion surface uses `contact@tidecairn.com`.
-5. `watch.tidecairn.com` is added only after GitHub Pages domain verification and DNS setup.
+5. `watch.tidecairn.com` is active with GitHub Pages domain verification, DNS validation, and HTTPS.
 6. Scheduled refresh and push-triggered publication remain disabled until live-origin QA passes.
 
 See `methodology.html`, `privacy.html`, `docs/SOURCE-POLICY.md`, and `docs/DEPLOYMENT.md` for the public operating model.

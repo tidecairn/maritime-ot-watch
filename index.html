@@ -29,10 +29,10 @@
 <section class="watch" id="watch">
   <div class="section-head"><div><div class="eyebrow">WATCH LEDGER</div><h2>Current signals</h2><p>Newest records first. Archived seed records remain labeled and searchable.</p></div></div>
   <div class="filterbar" role="search"><label>Search <input id="search" type="search" autocomplete="off" placeholder="Vendor, product, CVE, advisory"></label><label>Signal type <select id="typeFilter"><option value="">All types</option></select></label><label>Vendor <select id="vendorFilter"><option value="">All vendors</option></select></label><button id="clearFilters" type="button">Clear</button></div>
-  <div id="signalList" class="signal-list" aria-live="polite"></div><div id="emptySignals" class="empty" hidden>No signals match the current filters.</div>
+  <div id="signalStatus" class="sr-only" aria-live="polite"></div><div id="signalList" class="signal-list"></div><div id="emptySignals" class="empty" hidden>No signals match the current filters.</div>
 </section>
 <section class="split" id="products">
-  <div class="panel"><div class="section-head compact"><div><div class="eyebrow">PRODUCT INDEX</div><h2>Indexed product families</h2></div><strong id="productCount" class="metric">—</strong></div><div id="productIndex" class="product-grid"></div></div>
+  <div class="panel"><div class="section-head compact"><div><div class="eyebrow">PRODUCT INDEX</div><h2>Indexed product families</h2></div><strong id="productCount" class="metric">—</strong></div><div id="productIndex" class="product-grid"></div><p id="productIndexNote" class="index-note"></p></div>
   <aside class="panel method-card" id="method"><div class="eyebrow">METHOD</div><h2>Evidence before verdict.</h2><p>Maritime OT Watch is a discovery surface. Public-source inclusion means “review this,” not “this asset is affected.” Exact identity, deployed version, configuration, evidence freshness, and human designation still matter.</p><a href="methodology.html">Read methodology and coverage limits →</a></aside>
 </section>
 <section id="sourceStatus" class="source-status" aria-labelledby="source-title"><div><div class="eyebrow">SOURCE STATUS</div><h2 id="source-title">Source state</h2><p>Live sources retain independent checked and last-success timestamps. The curated registry is identified separately as a local registry load. Failed or implausibly collapsed acquisition never becomes an all-clear.</p></div><div id="sourceGrid" class="source-grid"></div></section>

@@ -2,7 +2,7 @@ import hashlib,json,pathlib,re,unittest,sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from scripts.update_watch import (
     parse_description,is_ot_relevant,source_allowed,parse_ics_rss,parse_ics_listing,
-    parse_csaf_feed,parse_csaf_advisory,source_state,plausible_count,clip_summary,build_kev_signal
+    parse_csaf_feed,parse_csaf_advisory,source_state,plausible_count,clip_summary,build_kev_signal,activity_date
 )
 R=pathlib.Path(__file__).resolve().parents[1]
 
@@ -23,6 +23,26 @@ class WatchTests(unittest.TestCase):
   self.assertEqual(self.d['meta'].get('commercialEmail'),'contact@tidecairn.com')
   html=(R/'index.html').read_text(encoding='utf-8'); js=(R/'assets/watch.js').read_text(encoding='utf-8')
   self.assertIn('contact-link',html); self.assertIn('configureContact(m.commercialEmail)',js); self.assertIn('mailto:',js)
+
+ def test_presentation_version(self): self.assertEqual(self.d['meta'].get('presentationVersion'),'watch-ui/v1.1')
+ def test_signal_order_uses_latest_activity(self):
+  keys=[(activity_date(x),x.get('date') or '',x['id']) for x in self.d['signals']]; self.assertEqual(keys,sorted(keys,reverse=True))
+ def test_revision_presentation_is_explicit(self):
+  js=(R/'assets/watch.js').read_text(encoding='utf-8'); method=(R/'methodology.html').read_text(encoding='utf-8')
+  self.assertIn('Updated ${esc(s.updated)}',js); self.assertIn('Published ${esc(s.date',js); self.assertIn('latest material activity date',method)
+ def test_readiness_hidden_state_is_enforced(self):
+  html=(R/'index.html').read_text(encoding='utf-8'); css=(R/'assets/watch.css').read_text(encoding='utf-8')
+  self.assertIn('id="readinessResult" hidden',html); self.assertIn('.readiness-result[hidden]{display:none}',css)
+ def test_signal_live_region_is_bounded(self):
+  html=(R/'index.html').read_text(encoding='utf-8'); self.assertIn('id="signalStatus" class="sr-only" aria-live="polite"',html); self.assertNotIn('id="signalList" class="signal-list" aria-live=',html)
+ def test_curated_registry_label_is_explicit(self):
+  js=(R/'assets/watch.js').read_text(encoding='utf-8'); self.assertIn("curated:'Curated local registry'",js); self.assertIn("'Registry load'",js)
+ def test_cve_and_multi_cve_epss_presentation(self):
+  js=(R/'assets/watch.js').read_text(encoding='utf-8'); self.assertIn('cves.slice(0,3)',js); self.assertIn("cves.length>1?'MAX EPSS':'EPSS'",js)
+ def test_product_index_discloses_truncation(self):
+  html=(R/'index.html').read_text(encoding='utf-8'); js=(R/'assets/watch.js').read_text(encoding='utf-8'); self.assertIn('id="productIndexNote"',html); self.assertIn('highest-frequency families',js)
+ def test_404_has_security_controls_and_root_links(self):
+  s=(R/'404.html').read_text(encoding='utf-8'); self.assertIn('Content-Security-Policy',s); self.assertIn('name="referrer" content="no-referrer"',s); self.assertIn('href="/assets/watch.css"',s); self.assertIn('href="/"',s)
  def test_description_parser(self):
   x=parse_description('<b>CVSS v3 9.8</b><p>Vendor: Siemens</p><p>Equipment: SIMATIC S7-1500 PLC</p><p>CVE-2026-12345</p>'); self.assertEqual(x['cvss'],9.8); self.assertIn('CVE-2026-12345',x['cves'])
  def test_ot_relevance_positive(self):
