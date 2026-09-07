@@ -4,15 +4,15 @@
     "selectorVersion": "ot-relevance/v2.1",
     "acquisitionVersion": "cisa-ics-csaf/v1.1",
     "presentationVersion": "watch-ui/v1.1",
-    "generatedAt": "2026-09-07T08:06:37Z",
-    "dataAsOf": "2026-09-07T08:06:37Z",
+    "generatedAt": "2026-09-07T09:33:13Z",
+    "dataAsOf": "2026-09-07T09:33:13Z",
     "health": "HEALTHY",
     "sources": {
       "curated": {
         "status": "healthy",
         "mode": "local-registry",
-        "checkedAt": "2026-09-07T08:06:37Z",
-        "lastSuccess": "2026-09-07T08:06:37Z",
+        "checkedAt": "2026-09-07T09:33:13Z",
+        "lastSuccess": "2026-09-07T09:33:13Z",
         "recordCount": 6,
         "error": "",
         "note": "Local curated registry loaded; individual records retain their own source dates"
@@ -20,8 +20,8 @@
       "cisaIcs": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-07T08:06:37Z",
-        "lastSuccess": "2026-09-07T08:06:37Z",
+        "checkedAt": "2026-09-07T09:33:13Z",
+        "lastSuccess": "2026-09-07T09:33:13Z",
         "recordCount": 50,
         "error": "",
         "note": "CISA official OT TLP:WHITE CSAF ROLIE feed (cisagov/CSAF)",
@@ -31,8 +31,8 @@
       "cisaKev": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-07T08:06:37Z",
-        "lastSuccess": "2026-09-07T08:06:37Z",
+        "checkedAt": "2026-09-07T09:33:13Z",
+        "lastSuccess": "2026-09-07T09:33:13Z",
         "recordCount": 8,
         "error": "",
         "note": "Token-aware OT selector v2.1; ICS-linked CVEs labeled explicitly"
@@ -40,8 +40,8 @@
       "firstEpss": {
         "status": "healthy",
         "mode": "enrichment",
-        "checkedAt": "2026-09-07T08:06:37Z",
-        "lastSuccess": "2026-09-07T08:06:37Z",
+        "checkedAt": "2026-09-07T09:33:13Z",
+        "lastSuccess": "2026-09-07T09:33:13Z",
         "recordCount": 126,
         "error": "",
         "note": ""
