@@ -16,9 +16,25 @@ class LaunchConfigurationTests(unittest.TestCase):
         text = (ROOT / ".github" / "workflows" / "refresh.yml").read_text(encoding="utf-8")
         self.assertIn('cron: "17 1,7,13,19 * * *"', text)
         self.assertIn("workflow_dispatch:", text)
-        self.assertIn("actions/deploy-pages@", text)
-        self.assertIn("git push", text)
         self.assertIn("tidecairn-watch-production", text)
+        self.assertIn("git push origin HEAD:main", text)
+
+    def test_refresh_retries_are_safe(self):
+        text = (ROOT / ".github" / "workflows" / "refresh.yml").read_text(encoding="utf-8")
+        self.assertIn("ref: main", text)
+        self.assertIn("fetch-depth: 0", text)
+        self.assertIn("Verify production main did not advance during refresh", text)
+        self.assertIn("deploy:", text)
+        self.assertIn("needs: refresh", text)
+        self.assertIn("deploy_sha:", text)
+        self.assertIn("ref: ${{ needs.refresh.outputs.deploy_sha }}", text)
+
+    def test_pages_oidc_permissions_are_job_scoped(self):
+        text = (ROOT / ".github" / "workflows" / "refresh.yml").read_text(encoding="utf-8")
+        deploy = text.split("\n  deploy:", 1)[1]
+        self.assertIn("pages: write", deploy)
+        self.assertIn("id-token: write", deploy)
+        self.assertIn("actions/deploy-pages@", deploy)
 
     def test_pages_publishes_main_pushes(self):
         text = (ROOT / ".github" / "workflows" / "pages.yml").read_text(encoding="utf-8")

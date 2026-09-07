@@ -15,17 +15,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  refresh-and-deploy:
+  refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      deploy_sha: ${{ steps.final-sha.outputs.sha }}
+
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Checkout current production main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
+
+      - name: Record starting main
+        id: starting-main
+        shell: bash
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Pre-refresh regression gate
         run: python -m unittest discover -s tests -v
@@ -42,13 +52,59 @@ jobs:
       - name: Build exact public artifact
         run: python scripts/build.py
 
+      - name: Verify production main did not advance during refresh
+        shell: bash
+        run: |
+          git fetch origin main
+          STARTING_SHA="${{ steps.starting-main.outputs.sha }}"
+          REMOTE_SHA="$(git rev-parse origin/main)"
+          if [ "$STARTING_SHA" != "$REMOTE_SHA" ]; then
+            echo "::error::origin/main advanced during this refresh ($STARTING_SHA -> $REMOTE_SHA). Refusing to rebase generated intelligence onto a moving codebase. Start a fresh workflow run."
+            exit 1
+          fi
+
       - name: Commit verified intelligence when changed
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/watch.json data/watch.sha256
-          git diff --cached --quiet || git commit -m "watch: refresh public-source intelligence"
-          git push
+          if git diff --cached --quiet; then
+            echo "No intelligence-byte changes to commit."
+          else
+            git commit -m "watch: refresh public-source intelligence"
+            git push origin HEAD:main
+          fi
+
+      - name: Capture exact deploy commit
+        id: final-sha
+        shell: bash
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    needs: refresh
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout exact refreshed commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.refresh.outputs.deploy_sha }}
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild exact deploy artifact
+        run: python scripts/build.py
 
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
 
