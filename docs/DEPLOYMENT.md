@@ -1,37 +1,72 @@
 # Deployment and release controls
 
-Maritime OT Watch uses GitHub Actions deployment rather than a `gh-pages` branch.
+Maritime OT Watch is the public intelligence surface of Tidecairn Systems and is served at:
 
-## Current launch-candidate state
+`https://watch.tidecairn.com`
 
-The intelligence acquisition and normalization gate is closed. CISA OT CSAF, CISA KEV, FIRST EPSS, curated provenance, source-health semantics, and corpus integrity have passed controlled live validation.
+GitHub Actions is the publishing source. `dist/` is generated in CI and is intentionally not committed.
 
-Both workflows remain intentionally `workflow_dispatch`-only. The custom domain and HTTPS are active; the site remains an unannounced launch candidate until the final live-origin QA/repair gate passes.
+## Production state
 
-## Identity and conversion gate
+The following gates are closed:
 
-1. Operate a real Tidecairn-domain commercial inbox (`contact@tidecairn.com`).
-2. Verify `tidecairn.com` under the Tidecairn GitHub organization's **Settings → Pages** domain-verification control and retain the TXT challenge record.
-3. Enable the Watch conversion surface only after the inbox and domain are operational.
+- Tidecairn-domain email operational;
+- organization Pages domain verified;
+- `watch.tidecairn.com` DNS validated;
+- GitHub-managed HTTPS active and enforced;
+- intelligence acquisition/normalization gate passed;
+- live-origin repair gate passed;
+- public commercial contact configured at `contact@tidecairn.com`;
+- production presentation marker `watch-ui/v1.1` active.
 
-## First Pages validation
+## Production refresh path
 
-Completed: GitHub Actions is the Pages source, `watch.tidecairn.com` is the verified custom domain, the `watch` CNAME points to `tidecairn.github.io`, the first Pages deployment succeeded, and GitHub-managed HTTPS is active.
+`Refresh Watch intelligence` runs at an offset six-hour cadence:
 
-Remaining before announcement:
+- 01:17 UTC
+- 07:17 UTC
+- 13:17 UTC
+- 19:17 UTC
 
-1. Apply any fixes produced by the live-origin red-team gate.
-2. Manually refresh intelligence and redeploy Pages.
-3. Re-run desktop/mobile/accessibility/security/live-data QA against `https://watch.tidecairn.com`.
-4. Only after acceptance, enable post-launch automation.
+Manual dispatch remains available.
 
-## Post-acceptance automation
+Each run performs:
 
-Only after live-origin acceptance:
+1. pre-refresh regression tests;
+2. public-source acquisition and normalization;
+3. post-refresh regression tests;
+4. JavaScript syntax validation;
+5. exact static build;
+6. verified `watch.json` / `watch.sha256` commit when bytes changed;
+7. direct deployment of the exact refreshed `dist/` artifact to GitHub Pages.
 
-- add the six-hour intelligence refresh schedule;
-- allow successful refresh commits to trigger Pages publication;
-- update repository/public status from launch candidate to public;
-- create the first public release/tag.
+The refresh workflow deploys directly because pushes made with the workflow's standard `GITHUB_TOKEN` do not reliably trigger a second workflow. No PAT or recursive workflow trigger is required.
 
-`dist/` is generated in CI and is intentionally not committed.
+## Code-change publication path
+
+`Publish GitHub Pages` runs on:
+
+- push to `main`;
+- manual dispatch.
+
+It independently executes regression tests, JavaScript syntax validation, the static build, and GitHub Pages deployment.
+
+Both production workflows share one repository-level concurrency group so code deployments and intelligence refresh deployments cannot race each other.
+
+## Failure behavior
+
+A failed source acquisition cannot advance that source's `lastSuccess`. Suspicious empty/collapsed source responses fail plausibility checks and preserve prior known-good records. Failed QA prevents publication.
+
+If a scheduled refresh fails:
+
+1. inspect the failed job;
+2. do not manually edit `data/watch.json`;
+3. correct the acquisition or test defect;
+4. re-run the workflow;
+5. confirm the public integrity indicator returns `VERIFIED`.
+
+## Release freeze
+
+The first production tag is `v1.0.0`.
+
+Post-1.0 changes to selector, acquisition, provenance, ordering, or integrity semantics require regression coverage and a deliberate version-marker change where materially appropriate.
