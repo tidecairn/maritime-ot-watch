@@ -4,15 +4,15 @@
     "selectorVersion": "ot-relevance/v2.1",
     "acquisitionVersion": "cisa-ics-csaf/v1.1",
     "presentationVersion": "watch-ui/v1.1",
-    "generatedAt": "2026-09-08T17:16:11Z",
-    "dataAsOf": "2026-09-08T17:16:11Z",
+    "generatedAt": "2026-09-08T21:53:22Z",
+    "dataAsOf": "2026-09-08T21:53:22Z",
     "health": "HEALTHY",
     "sources": {
       "curated": {
         "status": "healthy",
         "mode": "local-registry",
-        "checkedAt": "2026-09-08T17:16:11Z",
-        "lastSuccess": "2026-09-08T17:16:11Z",
+        "checkedAt": "2026-09-08T21:53:22Z",
+        "lastSuccess": "2026-09-08T21:53:22Z",
         "recordCount": 6,
         "error": "",
         "note": "Local curated registry loaded; individual records retain their own source dates"
@@ -20,19 +20,19 @@
       "cisaIcs": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-08T17:16:11Z",
-        "lastSuccess": "2026-09-08T17:16:11Z",
+        "checkedAt": "2026-09-08T21:53:22Z",
+        "lastSuccess": "2026-09-08T21:53:22Z",
         "recordCount": 50,
         "error": "",
         "note": "CISA official OT TLP:WHITE CSAF ROLIE feed (cisagov/CSAF)",
-        "feedUpdated": "2026-09-03T17:39:23.867765Z",
-        "snapshotSha256": "5be4d6645f35ee9f98093b611536205ca83f07ccece1c6a3c6b2408535048dd7"
+        "feedUpdated": "2026-09-08T19:37:31.025055Z",
+        "snapshotSha256": "d6e56a2a405e277b324f20c4719de4db5e6bc45a1f3c92c67a71247e691fcd23"
       },
       "cisaKev": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-08T17:16:11Z",
-        "lastSuccess": "2026-09-08T17:16:11Z",
+        "checkedAt": "2026-09-08T21:53:22Z",
+        "lastSuccess": "2026-09-08T21:53:22Z",
         "recordCount": 8,
         "error": "",
         "note": "Token-aware OT selector v2.1; ICS-linked CVEs labeled explicitly"
@@ -40,9 +40,9 @@
       "firstEpss": {
         "status": "healthy",
         "mode": "enrichment",
-        "checkedAt": "2026-09-08T17:16:11Z",
-        "lastSuccess": "2026-09-08T17:16:11Z",
-        "recordCount": 126,
+        "checkedAt": "2026-09-08T21:53:22Z",
+        "lastSuccess": "2026-09-08T21:53:22Z",
+        "recordCount": 124,
         "error": "",
         "note": ""
       }
@@ -52,6 +52,31 @@
     "commercialEmail": "contact@tidecairn.com"
   },
   "signals": [
+    {
+      "id": "ICSA-26-251-01",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-09-08",
+      "title": "CareCam Pro IP Cameras",
+      "summary": "Successful exploitation of this vulnerability could allow an attacker to take full control of the device.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-251-01",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "CareCam",
+          "product": "ANJIA AJL33PC0801 Firmware"
+        }
+      ],
+      "cves": [
+        "CVE-2026-85083"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 6.8
+    },
     {
       "id": "ICSA-26-246-08",
       "origin": "CISA-ICS",
@@ -1753,35 +1778,6 @@
       "updated": "2026-08-12",
       "epss": 0.00472,
       "epssPercentile": 0.39176
-    },
-    {
-      "id": "ICSA-26-225-06",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-08-11",
-      "title": "Siemens RUGGEDCOM APE1808",
-      "summary": "Fortinet has published information on vulnerabilities in FortiOS. This advisory lists the related Siemens Industrial products. Siemens recommends to contact customer support for additional information, and follow Fortinet advisory for workarounds and mitigation measures.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-06",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Siemens",
-          "product": "RUGGEDCOM APE1808"
-        }
-      ],
-      "cves": [
-        "CVE-2026-23573",
-        "CVE-2026-59839"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 6.1,
-      "updated": "2026-08-12",
-      "epss": 0.00385,
-      "epssPercentile": 0.31678
     },
     {
       "id": "USCG-2026-07-22-SUBPARTF-WAIVERS",
