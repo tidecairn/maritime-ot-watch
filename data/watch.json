@@ -4,15 +4,15 @@
     "selectorVersion": "ot-relevance/v2.1",
     "acquisitionVersion": "cisa-ics-csaf/v1.1",
     "presentationVersion": "watch-ui/v1.1",
-    "generatedAt": "2026-09-09T21:43:32Z",
-    "dataAsOf": "2026-09-09T21:43:32Z",
+    "generatedAt": "2026-09-10T06:00:10Z",
+    "dataAsOf": "2026-09-10T06:00:10Z",
     "health": "HEALTHY",
     "sources": {
       "curated": {
         "status": "healthy",
         "mode": "local-registry",
-        "checkedAt": "2026-09-09T21:43:32Z",
-        "lastSuccess": "2026-09-09T21:43:32Z",
+        "checkedAt": "2026-09-10T06:00:10Z",
+        "lastSuccess": "2026-09-10T06:00:10Z",
         "recordCount": 6,
         "error": "",
         "note": "Local curated registry loaded; individual records retain their own source dates"
@@ -20,19 +20,19 @@
       "cisaIcs": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-09T21:43:32Z",
-        "lastSuccess": "2026-09-09T21:43:32Z",
+        "checkedAt": "2026-09-10T06:00:10Z",
+        "lastSuccess": "2026-09-10T06:00:10Z",
         "recordCount": 50,
         "error": "",
         "note": "CISA official OT TLP:WHITE CSAF ROLIE feed (cisagov/CSAF)",
-        "feedUpdated": "2026-09-08T19:37:31.025055Z",
-        "snapshotSha256": "d6e56a2a405e277b324f20c4719de4db5e6bc45a1f3c92c67a71247e691fcd23"
+        "feedUpdated": "2026-09-09T22:48:29.850508Z",
+        "snapshotSha256": "1f44bf718647c241134951dad0297cc03f1d5f81baeaf838417af64828ffcbf2"
       },
       "cisaKev": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-09-09T21:43:32Z",
-        "lastSuccess": "2026-09-09T21:43:32Z",
+        "checkedAt": "2026-09-10T06:00:10Z",
+        "lastSuccess": "2026-09-10T06:00:10Z",
         "recordCount": 8,
         "error": "",
         "note": "Token-aware OT selector v2.1; ICS-linked CVEs labeled explicitly"
@@ -40,9 +40,9 @@
       "firstEpss": {
         "status": "healthy",
         "mode": "enrichment",
-        "checkedAt": "2026-09-09T21:43:32Z",
-        "lastSuccess": "2026-09-09T21:43:32Z",
-        "recordCount": 124,
+        "checkedAt": "2026-09-10T06:00:10Z",
+        "lastSuccess": "2026-09-10T06:00:10Z",
+        "recordCount": 123,
         "error": "",
         "note": ""
       }
@@ -52,6 +52,67 @@
     "commercialEmail": "contact@tidecairn.com"
   },
   "signals": [
+    {
+      "id": "ICSA-26-244-06",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-09-01",
+      "title": "Rockwell Automation Historian ME",
+      "summary": "Successful exploitation of these vulnerabilities could crash the device being accessed; an out-of-bounds write condition may allow remote code execution.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-244-06",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Rockwell Automation",
+          "product": "Historian ME — Series B"
+        },
+        {
+          "vendor": "Rockwell Automation",
+          "product": "Historian ME — Series C"
+        }
+      ],
+      "cves": [
+        "CVE-2025-12768",
+        "CVE-2026-12661"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 8.0,
+      "updated": "2026-09-09",
+      "epss": 0.00285,
+      "epssPercentile": 0.2081
+    },
+    {
+      "id": "ICSA-26-246-02",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-08-05",
+      "title": "IXON VPN Client",
+      "summary": "Successful exploitation of this vulnerability could allow an attacker to perform remote code execution on the computer running the client with elevated privileges.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-02",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "IXON",
+          "product": "VPN Client"
+        }
+      ],
+      "cves": [
+        "CVE-2026-75925"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 9.6,
+      "updated": "2026-09-09",
+      "epss": 0.00671,
+      "epssPercentile": 0.49921
+    },
     {
       "id": "ICSA-26-251-01",
       "origin": "CISA-ICS",
@@ -294,34 +355,6 @@
       "cvss": 4.6
     },
     {
-      "id": "ICSA-26-246-02",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-08-05",
-      "title": "IXON VPN Client",
-      "summary": "Successful exploitation of this vulnerability could allow an attacker to perform remote code execution on the computer running the client with elevated privileges.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-246-02",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "IXON",
-          "product": "VPN Client"
-        }
-      ],
-      "cves": [
-        "CVE-2026-75925"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 9.6,
-      "updated": "2026-09-03",
-      "epss": 0.00671,
-      "epssPercentile": 0.49921
-    },
-    {
       "id": "ICSA-26-202-01",
       "origin": "CISA-ICS",
       "kind": "CISA ICS advisory",
@@ -405,38 +438,6 @@
       "updated": "2026-09-03",
       "epss": 0.00312,
       "epssPercentile": 0.23765
-    },
-    {
-      "id": "ICSA-26-244-06",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-09-01",
-      "title": "Rockwell Automation Historian ME",
-      "summary": "Successful exploitation of these vulnerabilities could crash the device being accessed; an out-of-bounds write condition may allow remote code execution.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-244-06",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Rockwell Automation",
-          "product": "Historian ME — Series B"
-        },
-        {
-          "vendor": "Rockwell Automation",
-          "product": "Historian ME — Series C"
-        }
-      ],
-      "cves": [
-        "CVE-2025-12768",
-        "CVE-2026-12661"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 8.0,
-      "epss": 0.00285,
-      "epssPercentile": 0.2081
     },
     {
       "id": "ICSA-26-244-05",
@@ -1674,6 +1675,42 @@
       "epssPercentile": 0.01594
     },
     {
+      "id": "ICSA-26-225-09",
+      "origin": "CISA-ICS",
+      "kind": "CISA ICS advisory",
+      "date": "2026-08-11",
+      "title": "Siemens Siveillance Video",
+      "summary": "Siveillance Video Management Servers contains a vulnerability that could allow a Remote Code Execution attack. Siemens has released new versions for the affected products and recommends to update to the latest versions.",
+      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-09",
+      "sourceName": "CISA ICS Advisory",
+      "tags": [
+        "CISA ICS",
+        "CSAF"
+      ],
+      "products": [
+        {
+          "vendor": "Siemens",
+          "product": "Siveillance Video V2023 R3"
+        },
+        {
+          "vendor": "Siemens",
+          "product": "Siveillance Video V2024 R1"
+        },
+        {
+          "vendor": "Siemens",
+          "product": "Siveillance Video V2025"
+        }
+      ],
+      "cves": [
+        "CVE-2026-3014"
+      ],
+      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
+      "cvss": 9.1,
+      "updated": "2026-08-13",
+      "epss": 0.00782,
+      "epssPercentile": 0.53827
+    },
+    {
       "id": "ICSA-26-225-08",
       "origin": "CISA-ICS",
       "kind": "CISA ICS advisory",
@@ -1749,35 +1786,6 @@
       "updated": "2026-08-13",
       "epss": 0.93235,
       "epssPercentile": 0.99829
-    },
-    {
-      "id": "ICSA-26-225-07",
-      "origin": "CISA-ICS",
-      "kind": "CISA ICS advisory",
-      "date": "2026-08-11",
-      "title": "Siemens License Server (SLS)",
-      "summary": "Siemens License Server is affected by multiple vulnerabilities which could allow an attacker to elevate its privileges and read arbitrary files on the system. Siemens has released a new version for Siemens License Server (SLS) and recommends to update to the latest version.",
-      "source": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-225-07",
-      "sourceName": "CISA ICS Advisory",
-      "tags": [
-        "CISA ICS",
-        "CSAF"
-      ],
-      "products": [
-        {
-          "vendor": "Siemens",
-          "product": "Siemens License Server (SLS)"
-        }
-      ],
-      "cves": [
-        "CVE-2026-69108",
-        "CVE-2026-69109"
-      ],
-      "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 7.5,
-      "updated": "2026-08-12",
-      "epss": 0.00472,
-      "epssPercentile": 0.39331
     },
     {
       "id": "USCG-2026-07-22-SUBPARTF-WAIVERS",
