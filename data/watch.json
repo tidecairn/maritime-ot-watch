@@ -4,15 +4,15 @@
     "selectorVersion": "ot-relevance/v2.1",
     "acquisitionVersion": "cisa-ics-csaf/v1.1",
     "presentationVersion": "watch-ui/v1.1",
-    "generatedAt": "2026-11-18T08:34:50Z",
-    "dataAsOf": "2026-11-18T08:34:50Z",
+    "generatedAt": "2026-11-18T21:27:00Z",
+    "dataAsOf": "2026-11-18T21:27:00Z",
     "health": "HEALTHY",
     "sources": {
       "curated": {
         "status": "healthy",
         "mode": "local-registry",
-        "checkedAt": "2026-11-18T08:34:50Z",
-        "lastSuccess": "2026-11-18T08:34:50Z",
+        "checkedAt": "2026-11-18T21:27:00Z",
+        "lastSuccess": "2026-11-18T21:27:00Z",
         "recordCount": 6,
         "error": "",
         "note": "Local curated registry loaded; individual records retain their own source dates"
@@ -20,8 +20,8 @@
       "cisaIcs": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-11-18T08:34:50Z",
-        "lastSuccess": "2026-11-18T08:34:50Z",
+        "checkedAt": "2026-11-18T21:27:00Z",
+        "lastSuccess": "2026-11-18T21:27:00Z",
         "recordCount": 30,
         "error": "",
         "note": "CISA ICS RSS fallback"
@@ -29,8 +29,8 @@
       "cisaKev": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-11-18T08:34:50Z",
-        "lastSuccess": "2026-11-18T08:34:50Z",
+        "checkedAt": "2026-11-18T21:27:00Z",
+        "lastSuccess": "2026-11-18T21:27:00Z",
         "recordCount": 11,
         "error": "",
         "note": "Token-aware OT selector v2.1; ICS-linked CVEs labeled explicitly"
@@ -38,8 +38,8 @@
       "firstEpss": {
         "status": "healthy",
         "mode": "enrichment",
-        "checkedAt": "2026-11-18T08:34:50Z",
-        "lastSuccess": "2026-11-18T08:34:50Z",
+        "checkedAt": "2026-11-18T21:27:00Z",
+        "lastSuccess": "2026-11-18T21:27:00Z",
         "recordCount": 487,
         "error": "",
         "note": ""
@@ -74,7 +74,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00173,
-      "epssPercentile": 0.06783
+      "epssPercentile": 0.06799
     },
     {
       "id": "ICSA-26-321-10",
@@ -100,7 +100,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00168,
-      "epssPercentile": 0.06096
+      "epssPercentile": 0.06108
     },
     {
       "id": "ICSA-26-321-09",
@@ -126,7 +126,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00126,
-      "epssPercentile": 0.02363
+      "epssPercentile": 0.02364
     },
     {
       "id": "ICSA-26-321-08",
@@ -152,7 +152,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00345,
-      "epssPercentile": 0.28498
+      "epssPercentile": 0.2855
     },
     {
       "id": "ICSA-26-321-07",
@@ -178,7 +178,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.001,
-      "epssPercentile": 0.00856
+      "epssPercentile": 0.00853
     },
     {
       "id": "ICSA-26-321-06",
@@ -231,7 +231,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00304,
-      "epssPercentile": 0.23505
+      "epssPercentile": 0.23537
     },
     {
       "id": "ICSA-26-321-04",
@@ -257,7 +257,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.82641,
-      "epssPercentile": 0.99673
+      "epssPercentile": 0.99674
     },
     {
       "id": "ICSA-26-321-03",
@@ -283,7 +283,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.82641,
-      "epssPercentile": 0.99673
+      "epssPercentile": 0.99674
     },
     {
       "id": "ICSA-26-321-02",
@@ -310,7 +310,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.0033,
-      "epssPercentile": 0.26535
+      "epssPercentile": 0.26582
     },
     {
       "id": "ICSA-26-321-01",
@@ -392,7 +392,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.82641,
-      "epssPercentile": 0.99673
+      "epssPercentile": 0.99674
     },
     {
       "id": "ICSA-26-316-03",
@@ -418,7 +418,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.82641,
-      "epssPercentile": 0.99673
+      "epssPercentile": 0.99674
     },
     {
       "id": "ICSA-26-316-02",
@@ -444,7 +444,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.82641,
-      "epssPercentile": 0.99673
+      "epssPercentile": 0.99674
     },
     {
       "id": "ICSA-26-316-01",
@@ -498,7 +498,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00302,
-      "epssPercentile": 0.23238
+      "epssPercentile": 0.23272
     },
     {
       "id": "ICSA-26-302-03",
@@ -525,7 +525,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.99224,
-      "epssPercentile": 0.99935
+      "epssPercentile": 0.99936
     },
     {
       "id": "ICSA-26-302-02",
@@ -552,7 +552,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00247,
-      "epssPercentile": 0.16159
+      "epssPercentile": 0.16173
     },
     {
       "id": "ICSA-26-302-01",
@@ -578,7 +578,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00259,
-      "epssPercentile": 0.17781
+      "epssPercentile": 0.17806
     },
     {
       "id": "KEV-CVE-2026-111497",
@@ -613,7 +613,7 @@
         "ICSA-26-321-04"
       ],
       "epss": 0.82641,
-      "epssPercentile": 0.99673
+      "epssPercentile": 0.99674
     },
     {
       "id": "ICSA-26-300-02",
@@ -671,7 +671,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00502,
-      "epssPercentile": 0.43552
+      "epssPercentile": 0.43642
     },
     {
       "id": "KEV-CVE-2026-109619",
@@ -765,7 +765,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00413,
-      "epssPercentile": 0.36165
+      "epssPercentile": 0.36258
     },
     {
       "id": "ICSA-26-295-17",
@@ -792,7 +792,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00477,
-      "epssPercentile": 0.41787
+      "epssPercentile": 0.41892
     },
     {
       "id": "ICSA-26-295-13",
@@ -818,7 +818,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.0034,
-      "epssPercentile": 0.27954
+      "epssPercentile": 0.28001
     },
     {
       "id": "ICSA-26-295-12",
@@ -854,7 +854,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00304,
-      "epssPercentile": 0.23494
+      "epssPercentile": 0.23527
     },
     {
       "id": "ICSA-26-295-11",
@@ -1307,7 +1307,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.37997,
-      "epssPercentile": 0.98577
+      "epssPercentile": 0.98581
     },
     {
       "id": "ICSA-26-295-07",
@@ -1333,7 +1333,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00107,
-      "epssPercentile": 0.01166
+      "epssPercentile": 0.01164
     },
     {
       "id": "ICSA-26-295-05",
@@ -1359,7 +1359,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00341,
-      "epssPercentile": 0.28071
+      "epssPercentile": 0.28121
     },
     {
       "id": "ICSA-26-295-02",
@@ -1386,7 +1386,7 @@
       "cvss": null,
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "epss": 0.00315,
-      "epssPercentile": 0.24807
+      "epssPercentile": 0.24845
     },
     {
       "id": "KEV-CVE-2025-39964",
@@ -1417,7 +1417,7 @@
         "ICSA-26-295-11"
       ],
       "epss": 0.01607,
-      "epssPercentile": 0.76317
+      "epssPercentile": 0.76381
     },
     {
       "id": "USCG-2026-07-22-SUBPARTF-WAIVERS",
@@ -1522,7 +1522,7 @@
       ],
       "relevance": "Common industrial control technology; maritime deployment not asserted",
       "epss": 0.74793,
-      "epssPercentile": 0.99511
+      "epssPercentile": 0.99512
     },
     {
       "id": "KEV-CVE-2021-26828",
@@ -1549,7 +1549,7 @@
       "dueDate": "2025-12-24",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.39096,
-      "epssPercentile": 0.98618
+      "epssPercentile": 0.98622
     },
     {
       "id": "KEV-CVE-2021-26829",
@@ -1576,7 +1576,7 @@
       "dueDate": "2025-12-19",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.47836,
-      "epssPercentile": 0.98874
+      "epssPercentile": 0.98877
     },
     {
       "id": "KEV-CVE-2023-6448",
@@ -1603,7 +1603,7 @@
       "dueDate": "2023-12-18",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.02089,
-      "epssPercentile": 0.8193
+      "epssPercentile": 0.81981
     },
     {
       "id": "KEV-CVE-2023-4863",
@@ -1661,7 +1661,7 @@
       "dueDate": "2023-08-03",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.98039,
-      "epssPercentile": 0.9991
+      "epssPercentile": 0.99911
     },
     {
       "id": "KEV-CVE-2016-4523",
@@ -1688,7 +1688,7 @@
       "dueDate": "2022-05-06",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.31167,
-      "epssPercentile": 0.98298
+      "epssPercentile": 0.98303
     },
     {
       "id": "KEV-CVE-2016-8562",
@@ -1715,7 +1715,7 @@
       "dueDate": "2022-03-24",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.0361,
-      "epssPercentile": 0.89678
+      "epssPercentile": 0.89707
     },
     {
       "id": "SCHNEIDER-SEVD-2020-080-01",
@@ -1743,7 +1743,7 @@
       ],
       "relevance": "Common industrial control technology; maritime deployment not asserted",
       "epss": 0.01581,
-      "epssPercentile": 0.7595
+      "epssPercentile": 0.76015
     }
   ]
 }
