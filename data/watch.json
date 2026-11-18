@@ -4,15 +4,15 @@
     "selectorVersion": "ot-relevance/v2.1",
     "acquisitionVersion": "cisa-ics-csaf/v1.1",
     "presentationVersion": "watch-ui/v1.1",
-    "generatedAt": "2026-11-17T21:47:56Z",
-    "dataAsOf": "2026-11-17T21:47:56Z",
+    "generatedAt": "2026-11-18T08:34:50Z",
+    "dataAsOf": "2026-11-18T08:34:50Z",
     "health": "HEALTHY",
     "sources": {
       "curated": {
         "status": "healthy",
         "mode": "local-registry",
-        "checkedAt": "2026-11-17T21:47:56Z",
-        "lastSuccess": "2026-11-17T21:47:56Z",
+        "checkedAt": "2026-11-18T08:34:50Z",
+        "lastSuccess": "2026-11-18T08:34:50Z",
         "recordCount": 6,
         "error": "",
         "note": "Local curated registry loaded; individual records retain their own source dates"
@@ -20,8 +20,8 @@
       "cisaIcs": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-11-17T21:47:56Z",
-        "lastSuccess": "2026-11-17T21:47:56Z",
+        "checkedAt": "2026-11-18T08:34:50Z",
+        "lastSuccess": "2026-11-18T08:34:50Z",
         "recordCount": 30,
         "error": "",
         "note": "CISA ICS RSS fallback"
@@ -29,8 +29,8 @@
       "cisaKev": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-11-17T21:47:56Z",
-        "lastSuccess": "2026-11-17T21:47:56Z",
+        "checkedAt": "2026-11-18T08:34:50Z",
+        "lastSuccess": "2026-11-18T08:34:50Z",
         "recordCount": 11,
         "error": "",
         "note": "Token-aware OT selector v2.1; ICS-linked CVEs labeled explicitly"
@@ -38,8 +38,8 @@
       "firstEpss": {
         "status": "healthy",
         "mode": "enrichment",
-        "checkedAt": "2026-11-17T21:47:56Z",
-        "lastSuccess": "2026-11-17T21:47:56Z",
+        "checkedAt": "2026-11-18T08:34:50Z",
+        "lastSuccess": "2026-11-18T08:34:50Z",
         "recordCount": 487,
         "error": "",
         "note": ""
