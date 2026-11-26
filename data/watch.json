@@ -4,15 +4,15 @@
     "selectorVersion": "ot-relevance/v2.1",
     "acquisitionVersion": "cisa-ics-csaf/v1.1",
     "presentationVersion": "watch-ui/v1.1",
-    "generatedAt": "2026-11-26T09:34:00Z",
-    "dataAsOf": "2026-11-26T09:34:00Z",
+    "generatedAt": "2026-11-26T22:22:36Z",
+    "dataAsOf": "2026-11-26T22:22:36Z",
     "health": "HEALTHY",
     "sources": {
       "curated": {
         "status": "healthy",
         "mode": "local-registry",
-        "checkedAt": "2026-11-26T09:34:00Z",
-        "lastSuccess": "2026-11-26T09:34:00Z",
+        "checkedAt": "2026-11-26T22:22:36Z",
+        "lastSuccess": "2026-11-26T22:22:36Z",
         "recordCount": 6,
         "error": "",
         "note": "Local curated registry loaded; individual records retain their own source dates"
@@ -20,8 +20,8 @@
       "cisaIcs": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-11-26T09:34:00Z",
-        "lastSuccess": "2026-11-26T09:34:00Z",
+        "checkedAt": "2026-11-26T22:22:36Z",
+        "lastSuccess": "2026-11-26T22:22:36Z",
         "recordCount": 50,
         "error": "",
         "note": "CISA official OT TLP:WHITE CSAF ROLIE feed (cisagov/CSAF)",
@@ -31,8 +31,8 @@
       "cisaKev": {
         "status": "healthy",
         "mode": "live-acquisition",
-        "checkedAt": "2026-11-26T09:34:00Z",
-        "lastSuccess": "2026-11-26T09:34:00Z",
+        "checkedAt": "2026-11-26T22:22:36Z",
+        "lastSuccess": "2026-11-26T22:22:36Z",
         "recordCount": 10,
         "error": "",
         "note": "Token-aware OT selector v2.1; ICS-linked CVEs labeled explicitly"
@@ -40,9 +40,9 @@
       "firstEpss": {
         "status": "healthy",
         "mode": "enrichment",
-        "checkedAt": "2026-11-26T09:34:00Z",
-        "lastSuccess": "2026-11-26T09:34:00Z",
-        "recordCount": 642,
+        "checkedAt": "2026-11-26T22:22:36Z",
+        "lastSuccess": "2026-11-26T22:22:36Z",
+        "recordCount": 643,
         "error": "",
         "note": ""
       }
@@ -80,8 +80,8 @@
       "relatedIcs": [
         "ICSA-25-140-03"
       ],
-      "epss": 0.00513,
-      "epssPercentile": 0.37031
+      "epss": 0.04271,
+      "epssPercentile": 0.91857
     },
     {
       "id": "ICSA-26-328-03",
@@ -107,8 +107,8 @@
       ],
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 9.8,
-      "epss": 0.00977,
-      "epssPercentile": 0.609
+      "epss": 0.01899,
+      "epssPercentile": 0.8024
     },
     {
       "id": "ICSA-26-328-01",
@@ -133,7 +133,9 @@
         "CVE-2026-127280"
       ],
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
-      "cvss": 7.8
+      "cvss": 7.8,
+      "epss": 0.00306,
+      "epssPercentile": 0.15879
     },
     {
       "id": "ICSA-26-328-02",
@@ -161,7 +163,7 @@
       "cvss": 5.3,
       "updated": "2026-11-24",
       "epss": 0.00175,
-      "epssPercentile": 0.04081
+      "epssPercentile": 0.04076
     },
     {
       "id": "ICSA-26-323-03",
@@ -188,7 +190,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.6,
       "epss": 0.00603,
-      "epssPercentile": 0.42955
+      "epssPercentile": 0.42963
     },
     {
       "id": "ICSA-26-323-02",
@@ -225,7 +227,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 9.6,
       "epss": 0.02024,
-      "epssPercentile": 0.81618
+      "epssPercentile": 0.81632
     },
     {
       "id": "ICSA-26-323-01",
@@ -252,7 +254,7 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.1,
       "epss": 0.00327,
-      "epssPercentile": 0.18206
+      "epssPercentile": 0.18201
     },
     {
       "id": "ICSA-25-140-03",
@@ -281,8 +283,8 @@
       "relevance": "Official CISA ICS advisory; maritime deployment not asserted",
       "cvss": 8.2,
       "updated": "2026-11-18",
-      "epss": 0.01521,
-      "epssPercentile": 0.74868
+      "epss": 0.04271,
+      "epssPercentile": 0.91857
     },
     {
       "id": "ICSA-25-079-02",
@@ -316,7 +318,7 @@
       "cvss": 6.5,
       "updated": "2026-11-18",
       "epss": 0.00707,
-      "epssPercentile": 0.49025
+      "epssPercentile": 0.49046
     },
     {
       "id": "ICSA-24-347-09",
@@ -381,7 +383,7 @@
       "cvss": 7.8,
       "updated": "2026-11-18",
       "epss": 0.00347,
-      "epssPercentile": 0.207
+      "epssPercentile": 0.20701
     },
     {
       "id": "ICSA-24-347-08",
@@ -434,7 +436,7 @@
       "cvss": 5.5,
       "updated": "2026-11-18",
       "epss": 0.00287,
-      "epssPercentile": 0.13859
+      "epssPercentile": 0.13848
     },
     {
       "id": "ICSA-24-347-03",
@@ -490,7 +492,7 @@
       "cvss": 8.8,
       "updated": "2026-11-18",
       "epss": 0.00222,
-      "epssPercentile": 0.07567
+      "epssPercentile": 0.07555
     },
     {
       "id": "ICSA-24-347-01",
@@ -518,7 +520,7 @@
       "cvss": 4.6,
       "updated": "2026-11-18",
       "epss": 0.00379,
-      "epssPercentile": 0.23728
+      "epssPercentile": 0.23729
     },
     {
       "id": "ICSA-25-014-02",
@@ -550,7 +552,7 @@
       "cvss": 7.8,
       "updated": "2026-11-18",
       "epss": 0.00263,
-      "epssPercentile": 0.11191
+      "epssPercentile": 0.11174
     },
     {
       "id": "ICSA-23-222-04",
@@ -579,7 +581,7 @@
       "cvss": 7.8,
       "updated": "2026-11-18",
       "epss": 0.01529,
-      "epssPercentile": 0.75028
+      "epssPercentile": 0.75048
     },
     {
       "id": "ICSA-23-222-03",
@@ -628,7 +630,7 @@
       "cvss": 7.8,
       "updated": "2026-11-18",
       "epss": 0.00305,
-      "epssPercentile": 0.15785
+      "epssPercentile": 0.1578
     },
     {
       "id": "ICSA-23-143-01",
@@ -681,7 +683,7 @@
       "cvss": 8.1,
       "updated": "2026-11-18",
       "epss": 0.03199,
-      "epssPercentile": 0.88873
+      "epssPercentile": 0.88881
     },
     {
       "id": "ICSA-23-138-03",
@@ -709,7 +711,7 @@
       "cvss": 6.7,
       "updated": "2026-11-18",
       "epss": 0.05261,
-      "epssPercentile": 0.93316
+      "epssPercentile": 0.9332
     },
     {
       "id": "ICSA-23-096-03",
@@ -739,7 +741,7 @@
       "cvss": 7.8,
       "updated": "2026-11-18",
       "epss": 0.00419,
-      "epssPercentile": 0.27905
+      "epssPercentile": 0.27908
     },
     {
       "id": "ICSA-21-208-03",
@@ -830,7 +832,7 @@
       "cvss": 7.1,
       "updated": "2026-11-18",
       "epss": 0.01131,
-      "epssPercentile": 0.66118
+      "epssPercentile": 0.66136
     },
     {
       "id": "ICSA-20-219-03",
@@ -920,7 +922,7 @@
       "cvss": 7.2,
       "updated": "2026-11-18",
       "epss": 0.03272,
-      "epssPercentile": 0.89169
+      "epssPercentile": 0.89176
     },
     {
       "id": "ICSA-19-073-01",
@@ -948,7 +950,7 @@
       "cvss": 7.8,
       "updated": "2026-11-18",
       "epss": 0.01205,
-      "epssPercentile": 0.68193
+      "epssPercentile": 0.68209
     },
     {
       "id": "ICSA-19-015-01",
@@ -1014,7 +1016,7 @@
       "cvss": 7.2,
       "updated": "2026-11-18",
       "epss": 0.03882,
-      "epssPercentile": 0.9098
+      "epssPercentile": 0.90986
     },
     {
       "id": "ICSA-18-289-01",
@@ -1047,7 +1049,7 @@
       "cvss": 7.8,
       "updated": "2026-11-18",
       "epss": 0.08063,
-      "epssPercentile": 0.95552
+      "epssPercentile": 0.95563
     },
     {
       "id": "ICSA-18-095-03",
@@ -1075,7 +1077,7 @@
       "cvss": 7.0,
       "updated": "2026-11-18",
       "epss": 0.00421,
-      "epssPercentile": 0.28118
+      "epssPercentile": 0.2812
     },
     {
       "id": "ICSA-17-082-01",
@@ -1103,7 +1105,7 @@
       "cvss": 5.3,
       "updated": "2026-11-18",
       "epss": 0.08462,
-      "epssPercentile": 0.95764
+      "epssPercentile": 0.95769
     },
     {
       "id": "ICSA-17-075-01",
@@ -1131,7 +1133,7 @@
       "cvss": 7.3,
       "updated": "2026-11-18",
       "epss": 0.00323,
-      "epssPercentile": 0.17812
+      "epssPercentile": 0.17806
     },
     {
       "id": "ICSA-17-045-02",
@@ -1188,7 +1190,7 @@
       "cvss": 7.3,
       "updated": "2026-11-17",
       "epss": 0.00194,
-      "epssPercentile": 0.05206
+      "epssPercentile": 0.05202
     },
     {
       "id": "ICSA-26-321-10",
@@ -1252,7 +1254,7 @@
       "cvss": 7.8,
       "updated": "2026-11-17",
       "epss": 0.00185,
-      "epssPercentile": 0.04719
+      "epssPercentile": 0.04709
     },
     {
       "id": "ICSA-26-321-08",
@@ -1308,7 +1310,7 @@
       "cvss": 7.5,
       "updated": "2026-11-17",
       "epss": 0.00519,
-      "epssPercentile": 0.37412
+      "epssPercentile": 0.37424
     },
     {
       "id": "ICSA-26-321-07",
@@ -1336,7 +1338,7 @@
       "cvss": 2.3,
       "updated": "2026-11-17",
       "epss": 0.00143,
-      "epssPercentile": 0.01823
+      "epssPercentile": 0.01819
     },
     {
       "id": "ICSA-26-321-06",
@@ -1364,7 +1366,7 @@
       "cvss": 8.2,
       "updated": "2026-11-17",
       "epss": 0.00178,
-      "epssPercentile": 0.04367
+      "epssPercentile": 0.0437
     },
     {
       "id": "ICSA-26-321-05",
@@ -1397,7 +1399,7 @@
       "cvss": 8.8,
       "updated": "2026-11-17",
       "epss": 0.00427,
-      "epssPercentile": 0.28682
+      "epssPercentile": 0.28683
     },
     {
       "id": "ICSA-26-321-04",
@@ -1538,7 +1540,7 @@
       "cvss": 7.5,
       "updated": "2026-11-17",
       "epss": 0.00442,
-      "epssPercentile": 0.30324
+      "epssPercentile": 0.30323
     },
     {
       "id": "ICSA-26-295-11",
@@ -2074,7 +2076,7 @@
       "cvss": 10.0,
       "updated": "2026-11-17",
       "epss": 0.03607,
-      "epssPercentile": 0.90233
+      "epssPercentile": 0.9024
     },
     {
       "id": "ICSA-26-225-06",
@@ -2107,7 +2109,7 @@
       "cvss": 8.1,
       "updated": "2026-11-17",
       "epss": 0.00624,
-      "epssPercentile": 0.44271
+      "epssPercentile": 0.44285
     },
     {
       "id": "ICSA-26-202-02",
@@ -2157,7 +2159,7 @@
       "cvss": 10.0,
       "updated": "2026-11-17",
       "epss": 0.01969,
-      "epssPercentile": 0.81035
+      "epssPercentile": 0.81051
     },
     {
       "id": "ICSA-26-174-03",
@@ -2213,7 +2215,7 @@
       "cvss": 8.8,
       "updated": "2026-11-17",
       "epss": 0.07043,
-      "epssPercentile": 0.94946
+      "epssPercentile": 0.94961
     },
     {
       "id": "ICSA-26-134-06",
@@ -2269,7 +2271,7 @@
       "cvss": 7.5,
       "updated": "2026-11-17",
       "epss": 0.0046,
-      "epssPercentile": 0.31875
+      "epssPercentile": 0.31877
     },
     {
       "id": "ICSA-26-078-05",
@@ -2325,7 +2327,7 @@
       "cvss": 5.9,
       "updated": "2026-11-17",
       "epss": 0.00643,
-      "epssPercentile": 0.45415
+      "epssPercentile": 0.45432
     },
     {
       "id": "ICSA-25-226-22",
@@ -2381,7 +2383,7 @@
       "cvss": 7.8,
       "updated": "2026-11-17",
       "epss": 0.00297,
-      "epssPercentile": 0.14771
+      "epssPercentile": 0.14762
     },
     {
       "id": "ICSA-25-226-11",
@@ -2437,7 +2439,7 @@
       "cvss": 7.8,
       "updated": "2026-11-17",
       "epss": 0.00717,
-      "epssPercentile": 0.49564
+      "epssPercentile": 0.49586
     },
     {
       "id": "ICSA-25-226-03",
@@ -2493,7 +2495,7 @@
       "cvss": 8.2,
       "updated": "2026-11-17",
       "epss": 0.00653,
-      "epssPercentile": 0.46
+      "epssPercentile": 0.4602
     },
     {
       "id": "ICSA-25-191-06",
@@ -2549,7 +2551,7 @@
       "cvss": 5.3,
       "updated": "2026-11-17",
       "epss": 0.00477,
-      "epssPercentile": 0.33592
+      "epssPercentile": 0.33598
     },
     {
       "id": "KEV-CVE-2026-111497",
@@ -2612,7 +2614,7 @@
         "ICSA-26-202-02"
       ],
       "epss": 0.01969,
-      "epssPercentile": 0.81035
+      "epssPercentile": 0.81051
     },
     {
       "id": "KEV-CVE-2025-39964",
@@ -2643,7 +2645,7 @@
         "ICSA-26-295-11"
       ],
       "epss": 0.00581,
-      "epssPercentile": 0.41686
+      "epssPercentile": 0.417
     },
     {
       "id": "USCG-2026-07-22-SUBPARTF-WAIVERS",
@@ -2748,7 +2750,7 @@
       ],
       "relevance": "Common industrial control technology; maritime deployment not asserted",
       "epss": 0.07043,
-      "epssPercentile": 0.94946
+      "epssPercentile": 0.94961
     },
     {
       "id": "KEV-CVE-2021-26828",
@@ -2775,7 +2777,7 @@
       "dueDate": "2025-12-24",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.39096,
-      "epssPercentile": 0.98937
+      "epssPercentile": 0.98938
     },
     {
       "id": "KEV-CVE-2021-26829",
@@ -2829,7 +2831,7 @@
       "dueDate": "2023-12-18",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.02002,
-      "epssPercentile": 0.81401
+      "epssPercentile": 0.81415
     },
     {
       "id": "KEV-CVE-2022-29303",
@@ -2883,7 +2885,7 @@
       "dueDate": "2022-05-06",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.31167,
-      "epssPercentile": 0.98675
+      "epssPercentile": 0.98676
     },
     {
       "id": "KEV-CVE-2016-8562",
@@ -2910,7 +2912,7 @@
       "dueDate": "2022-03-24",
       "relevance": "Known exploitation plus explicit OT product criteria; maritime deployment not asserted",
       "epss": 0.0361,
-      "epssPercentile": 0.90243
+      "epssPercentile": 0.9025
     },
     {
       "id": "SCHNEIDER-SEVD-2020-080-01",
@@ -2938,7 +2940,7 @@
       ],
       "relevance": "Common industrial control technology; maritime deployment not asserted",
       "epss": 0.01581,
-      "epssPercentile": 0.7584
+      "epssPercentile": 0.7586
     }
   ]
 }
